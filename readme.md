@@ -10,7 +10,13 @@ This GitHub repo includes the final code for all the modules in the course
 
 ## Course Description
 
-This course will teach you how to build a real world React application that manages multiple types of data relations including single table, one-to-one, one-to-many and many-to-many.
+In this course, Building Essential UI Data Elements in React 17, you’ll learn to. Build the front end browser based user interfaces, and the basics of the backend processing on a node server to read and update data presented in the front end React web application.
+
+First, you’ll explore the three most common data relationship scenarios used when building data backed real world React applications.  The three data relationships we will concern ourselves with are single table, 1-to-one, 1-to-many, and many-to-many.
+
+Next, you’ll discover all the details necessary to build a client only version using those relationships.  Finally, you’ll learn how to build out a complete backend in Node that supports persisting the data from all three relationships, through a REST server built in node and finally persisted backed to the the database Sqlite.
+
+When you are finished with the course, you’ll have the skills and knowledge necessary to build real world React applications that manage typical data scenarios found in both small home grown web site projects, as well as full enterprise applications.
 
 
 ## Directory Structure Here
