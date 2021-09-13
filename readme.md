@@ -12,16 +12,10 @@ This GitHub repo includes the final code for all the modules in the course
 
 This course will teach you how to build a real world React application that manages multiple types of data relations including single table, one-to-one, one-to-many and many-to-many.
 
-## Getting Started
-1. **Install [Node 12.16.3 with NPM 6.14.4](https://nodejs.org)**. 
-2. **Clone this repository.** - `https://github.com/pkellner/pluralsight-designing-react-components-course-code` or [download the zip](https://github.com/pkellner/pluralsight-designing-react-components-course-code/archive/master.zip)
-3. **Set your default directory to which module you want (example: `cd 02-designing-better-components` - `cd clip-030-components-to-code`
-4. **Install Node Packages with Dependencies.** - `npm install`
-
 
 ## Directory Structure Here
 
-Each of the 5 folders here represent one module of the course.  In each folder, there are subfolders that represent the completed code at the end of each clip. Where this is no clip reference, either there is no code in that clip or nothing changed from the previous clip.
+Each of the folders here represent one module of the course.  In each folder, there are subfolders that represent the completed code at the end of each clip. Where this is no clip reference, either there is no code in that clip or nothing changed from the previous clip.
 
 Once in a clip directory, the easiest way to test the app is to first install the packages by typing at the root of that directory (in a terminal window or DOS prompt)
 
