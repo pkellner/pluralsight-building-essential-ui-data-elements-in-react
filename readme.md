@@ -10,7 +10,7 @@ This GitHub repo includes the final code for all the modules in the course
 
 ## Course Description
 
-In this course, Building Essential UI Data Elements in React 17, you’ll learn to. Build the front end browser based user interfaces, and the basics of the backend processing on a node server to read and update data presented in the front end React web application.
+In this course, Building Essential UI Data Elements in React, you’ll learn to. Build the front end browser based user interfaces, and the basics of the backend processing on a node server to read and update data presented in the front end React web application.
 
 First, you’ll explore the three most common data relationship scenarios used when building data backed real world React applications.  The three data relationships we will concern ourselves with are single table, 1-to-one, 1-to-many, and many-to-many.
 
@@ -31,11 +31,8 @@ Then, do run the app you just need type
 
 `npm run dev`
 
-And that will launch the web server on port 3000 where you can browser to it at the url: `http://localhost:3000`
+That will launch the web server on port 3000 where you can browser to it at the url: `http://localhost:3000`
 
-Starting in module 4, clip 4,  you'll need to launch the `json-server` to simulate a REST server.  To do that, you enter the command at a terminal or DOS prompt:
-
-`npm run json-server`
 
 ## Background
 
