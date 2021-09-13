@@ -3,7 +3,7 @@
 The master branch here is the latest updates to the Pluralsight course <b>Building Essential UI Data Elements in React</b>
 
 
-# Course Code for [>Building Essential UI Data Elements in React](https://app.pluralsight.com/library/courses/react-17-building-essential-ui-data-elements) on Pluralsight
+# Course Code for [Building Essential UI Data Elements in React](https://app.pluralsight.com/library/courses/react-17-building-essential-ui-data-elements) on Pluralsight
 
 <br/>
 This GitHub repo includes the final code for all the modules in the course 
