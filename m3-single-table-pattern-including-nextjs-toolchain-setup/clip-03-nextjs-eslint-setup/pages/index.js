@@ -1,9 +1,4 @@
-import { useState } from "react";
-
 function IndexPage() {
-
-   
-
   return <div>Hello From Pluralsight!</div>;
 }
 
