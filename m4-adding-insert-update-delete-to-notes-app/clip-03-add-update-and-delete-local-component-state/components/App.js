@@ -4,7 +4,7 @@ import Menu from './Menu';
 
 function App() {
 
-  const { notesData, notesDataError, createNote } = useNotes();
+  const { notesData, notesDataError, createNote, updateNote, deleteNote } = useNotes();
 
   if (notesDataError) {
     return <div className="container">error: {notesDataError}</div>;
@@ -25,7 +25,7 @@ function App() {
   return (
     <div className="container">
       <Menu createNoteFn={createNoteFn} />
-      <NoteList notesData={notesData} />
+      <NoteList notesData={notesData} updateNote={updateNote} deleteNote={deleteNote} />
     </div>
   );
 }
