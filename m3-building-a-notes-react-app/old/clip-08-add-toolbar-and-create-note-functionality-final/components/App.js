@@ -1,9 +1,8 @@
-import NoteList from './NoteList.js';
-import Menu from './Menu';
-import useNotes from '../hooks/useNotes';
+import NoteList from "./NoteList.js";
+import Menu from "./Menu";
+import useNotes from "../hooks/useNotes";
 
 function App() {
-
   const { notesData, notesDataError, createNote } = useNotes();
 
   if (notesDataError) {
@@ -14,14 +13,14 @@ function App() {
   }
 
   function createNoteFn() {
-    const timeOfDay = new Date().toLocaleTimeString('en', {
-      hour: '2-digit',
-      minute: '2-digit',
-      second: '2-digit',
+    const timeOfDay = new Date().toLocaleTimeString("en", {
+      hour: "2-digit",
+      minute: "2-digit",
+      second: "2-digit",
     });
     createNote(
       `Note at ${timeOfDay}`,
-      'This sample note was created at ' + timeOfDay,
+      "This sample note was created at " + timeOfDay
     );
   }
 

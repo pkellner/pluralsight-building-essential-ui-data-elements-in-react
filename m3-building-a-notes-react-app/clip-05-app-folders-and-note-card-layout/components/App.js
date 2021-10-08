@@ -1,4 +1,4 @@
-import NoteList from './NoteList.js';
+import NoteList from "./NoteList.js";
 
 function App() {
   return (

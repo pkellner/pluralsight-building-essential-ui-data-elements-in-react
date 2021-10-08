@@ -4,9 +4,7 @@ function NoteCard({ note }) {
       <div className="card card-body">
         <div>
           <span className="side-stick"></span>
-          <h5 className="note-title text-truncate w-75 mb-0">
-            {note.title}
-          </h5>
+          <h5 className="note-title text-truncate w-75 mb-0">{note.title}</h5>
         </div>
 
         <p className="note-date font-12 text-muted">
@@ -15,14 +13,12 @@ function NoteCard({ note }) {
             month: "long",
             day: "numeric",
             hour: "2-digit",
-            minute: "2-digit"
+            minute: "2-digit",
           })}
         </p>
 
         <div className="note-content">
-          <p className="note-inner-content text-muted">
-            {note.description}
-          </p>
+          <p className="note-inner-content text-muted">{note.description}</p>
         </div>
       </div>
     </div>

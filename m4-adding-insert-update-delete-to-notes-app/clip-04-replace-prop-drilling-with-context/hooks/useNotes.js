@@ -1,10 +1,8 @@
-import { useEffect, useState } from 'react';
-import notes from '../data/notes.json';
-import { v4 as uuidv4 } from 'uuid';
-
+import { useEffect, useState } from "react";
+import notes from "../data/notes.json";
+import { v4 as uuidv4 } from "uuid";
 
 function useNotes() {
-
   const [notesData, setNotesData] = useState();
   const [notesDataError, setNotesDataError] = useState();
 
@@ -18,12 +16,14 @@ function useNotes() {
       }
     }
     getData();
-  },[]);
+  }, []);
 
   function createNote(title, description) {
     const newNote = {
       id: uuidv4(),
-      title, description, createDate: new Date().toISOString(),
+      title,
+      description,
+      createDate: new Date().toISOString(),
     };
     setNotesData((oldNotes) => {
       return [...oldNotes, newNote]; // Order does not matter as sort happens later
@@ -33,15 +33,15 @@ function useNotes() {
   function updateNote(id, title, description) {
     setNotesData(function (oriState) {
       return oriState.map(function (rec) {
-        return rec.id != id ? rec :
-          {
-            ...rec,
-            title: title ? title : rec.title,
-            description: description ? description : rec.description,
-          };
+        return rec.id != id
+          ? rec
+          : {
+              ...rec,
+              title: title ? title : rec.title,
+              description: description ? description : rec.description,
+            };
       });
     });
-
   }
 
   function deleteNote(id) {
@@ -53,7 +53,6 @@ function useNotes() {
   }
 
   return { notesData, notesDataError, createNote, updateNote, deleteNote };
-
 }
 
 export default useNotes;

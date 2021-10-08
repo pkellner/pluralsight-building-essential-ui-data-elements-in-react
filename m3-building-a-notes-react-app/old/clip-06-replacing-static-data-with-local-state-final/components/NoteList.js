@@ -1,9 +1,8 @@
 import NoteCard from "./NoteCard.js";
 import notes from "../data/notes.json";
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from "react";
 
 function NoteList() {
-
   const [notesData, setNotesData] = useState();
   const [notesDataError, setNotesDataError] = useState();
 

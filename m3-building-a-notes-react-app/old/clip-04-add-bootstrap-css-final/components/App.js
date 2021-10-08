@@ -2,7 +2,7 @@ import NoteList from "./NoteList";
 
 function App() {
   return (
-    <div className="container">          
+    <div className="container">
       <NoteList />
     </div>
   );

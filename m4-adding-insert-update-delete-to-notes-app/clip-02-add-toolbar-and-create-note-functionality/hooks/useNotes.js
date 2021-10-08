@@ -1,10 +1,8 @@
-import { useEffect, useState } from 'react';
-import notes from '../data/notes.json';
-import { v4 as uuidv4 } from 'uuid';
-
+import { useEffect, useState } from "react";
+import notes from "../data/notes.json";
+import { v4 as uuidv4 } from "uuid";
 
 function useNotes() {
-
   const [notesData, setNotesData] = useState();
   const [notesDataError, setNotesDataError] = useState();
 
@@ -18,12 +16,14 @@ function useNotes() {
       }
     }
     getData();
-  },[]);
+  }, []);
 
   function createNote(title, description) {
     const newNote = {
       id: uuidv4(),
-      title, description, createDate: new Date().toISOString(),
+      title,
+      description,
+      createDate: new Date().toISOString(),
     };
     setNotesData((oldNotes) => {
       return [...oldNotes, newNote]; // Order does not matter as sort happens later
@@ -31,7 +31,6 @@ function useNotes() {
   }
 
   return { notesData, notesDataError, createNote };
-
 }
 
 export default useNotes;

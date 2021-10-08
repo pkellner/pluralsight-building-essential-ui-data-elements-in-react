@@ -1,8 +1,7 @@
-import NoteList from './NoteList.js';
-import useNotes from '../hooks/useNotes';
+import NoteList from "./NoteList.js";
+import useNotes from "../hooks/useNotes";
 
 function App() {
-
   const { notesData, notesDataError } = useNotes();
 
   if (notesDataError) {

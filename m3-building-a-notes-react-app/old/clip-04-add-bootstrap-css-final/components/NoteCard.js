@@ -10,12 +10,12 @@ function NoteCard({ note }) {
         </div>
 
         <p className="note-date font-12 text-muted">
-          {new Date(note.createDate).toLocaleTimeString('en', {
-            year: 'numeric',
-            month: 'long',
-            day: 'numeric',
-            hour: '2-digit',
-            minute: '2-digit',
+          {new Date(note.createDate).toLocaleTimeString("en", {
+            year: "numeric",
+            month: "long",
+            day: "numeric",
+            hour: "2-digit",
+            minute: "2-digit",
           })}
         </p>
 

@@ -1,5 +1,5 @@
-import { useEffect, useState } from 'react';
-import notes from '../data/notes.json';
+import { useEffect, useState } from "react";
+import notes from "../data/notes.json";
 // import { v4 as uuidv4 } from 'uuid';
 
 function useNotes() {

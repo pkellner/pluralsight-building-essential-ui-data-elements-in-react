@@ -1,9 +1,7 @@
-import { useEffect, useState } from 'react';
-import notes from '../data/notes.json';
-
+import { useEffect, useState } from "react";
+import notes from "../data/notes.json";
 
 function useNotes() {
-
   const [notesData, setNotesData] = useState();
   const [notesDataError, setNotesDataError] = useState();
 
@@ -20,7 +18,6 @@ function useNotes() {
   });
 
   return { notesData, notesDataError };
-
 }
 
 export default useNotes;
