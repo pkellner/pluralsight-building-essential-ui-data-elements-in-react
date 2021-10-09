@@ -2,9 +2,22 @@
 
 function NotesModalFooter() {
   return (
-    <div classNae="modal-footer">
-      <button className="float-left btn btn-success" >Save</button>
-      <button className="btn btn-danger" data-dismiss="modal" >Discard</button>
+    <div className="modal-footer">
+      <button onClick={() => { }} className="float-left-btn-success">
+        Save
+      </button>
+
+      <button
+        className="btn btn-danger" onClick={() => { }} data-dismiss="modal">
+        Discard
+      </button>
+
+      <button
+        className="btn btn-info" onClick={() => { }}>
+        Add  
+      </button>
+
+
     </div>
   );
 }

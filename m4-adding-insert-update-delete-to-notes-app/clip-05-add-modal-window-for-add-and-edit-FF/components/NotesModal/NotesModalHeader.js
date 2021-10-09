@@ -6,11 +6,13 @@ function NotesModalHeader() {
       <h5 className="modal-title text-white">
         <span>Add or Edit Note</span>
       </h5>
-      <button type="button"
-        onClick={() => { }}
+      <button
+        type="button"
+        onClick={() => {
+        }}
         className="close text-white"
         data-dismiss="modal"
-        area-label="close"
+        aria-label="Close"
       >
         <span aria-hidden="true">x</span>
       </button>

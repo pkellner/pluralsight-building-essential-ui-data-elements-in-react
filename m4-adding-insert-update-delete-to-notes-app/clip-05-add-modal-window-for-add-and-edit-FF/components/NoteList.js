@@ -1,6 +1,6 @@
-import NoteCard from './NoteCard.js';
-import { NotesContext } from './App';
-import { useContext } from 'react';
+import NoteCard from "./NoteCard.js";
+import { NotesContext } from "./App";
+import { useContext } from "react";
 import NotesModal from "./NotesModal/NotesModal";
 
 function NoteList() {

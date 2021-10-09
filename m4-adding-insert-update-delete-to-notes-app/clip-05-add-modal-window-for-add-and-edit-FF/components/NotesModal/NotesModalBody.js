@@ -10,14 +10,13 @@ function NotesModalBody() {
               <div className="col-md-12">
                 <div className="note-title">
                   <label>Note Title</label>
-                  <input type="text" className="form-control"
-                    placeholder="Title" />
+                  <input type="text" className="form-control" placeholder="Title" />
                 </div>
               </div>
-              <div className="col-md-12" >
+              <div className="col-md-12">
                 <label>Note Description</label>
-                <textarea className="form-control"
-                  placeholder="Description" rows={3}>
+                <textarea
+                  className="form-control" placeholder="Description" rows={3}>
                 </textarea>
               </div>
             </div>
@@ -27,4 +26,5 @@ function NotesModalBody() {
     </div>
   );
 }
+
 export default NotesModalBody;
