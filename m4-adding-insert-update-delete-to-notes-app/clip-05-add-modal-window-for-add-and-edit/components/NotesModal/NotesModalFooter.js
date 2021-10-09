@@ -3,7 +3,7 @@
 function NotesModalFooter() {
   return (
     <div className="modal-footer">
-      <button onClick={() => { }} className="float-left-btn-success">
+      <button onClick={() => { }} className="float-left btn btn-success">
         Save
       </button>
 
