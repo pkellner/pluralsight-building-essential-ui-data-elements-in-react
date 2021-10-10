@@ -1,11 +1,11 @@
-import NotesModalHeader from './NotesModalHeader';
-import NotesModalBody from './NotesModalBody';
-import NotesModalFooter from './NotesModalFooter';
+import NotesModalHeader from "./NotesModalHeader";
+import NotesModalBody from "./NotesModalBody";
+import NotesModalFooter from "./NotesModalFooter";
 
 function NotesModal() {
   const modalShow = true;
   let cssShowHide =
-    modalShow && modalShow === true ? 'modal show-modal' : 'modal hide-modal';
+    modalShow && modalShow === true ? "modal show-modal" : "modal hide-modal";
   return (
     <>
       <style jsx>{`
@@ -17,10 +17,7 @@ function NotesModal() {
         }
       `}</style>
 
-      <div
-        className={cssShowHide}
-        role="dialog"
-      >
+      <div className={cssShowHide} role="dialog">
         <div className="modal-dialog modal-dialog-centered" role="document">
           <div className="modal-content border-0">
             <NotesModalHeader />

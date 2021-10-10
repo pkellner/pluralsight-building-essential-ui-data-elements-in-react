@@ -1,4 +1,4 @@
-import {useState} from "react";
+import { useState } from "react";
 
 function useNotesModal() {
   const [modalShow, setModalShow] = useState(false);

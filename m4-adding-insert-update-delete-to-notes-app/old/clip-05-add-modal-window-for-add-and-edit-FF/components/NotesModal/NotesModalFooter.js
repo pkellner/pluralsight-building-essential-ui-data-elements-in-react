@@ -1,5 +1,3 @@
-
-
 function NotesModalFooter() {
   return (
     <div className="modal-footer">

@@ -4,12 +4,8 @@ import { NotesContext, NotesModalContext } from "../App";
 function NotesModalFooter() {
   const { createNote, updateNote } = useContext(NotesContext);
 
-  const {
-    modalNoteId,
-    setModalShow,
-    modalNoteTitle,
-    modalNoteDescription,
-  } = useContext(NotesModalContext);
+  const { modalNoteId, setModalShow, modalNoteTitle, modalNoteDescription } =
+    useContext(NotesModalContext);
 
   return (
     <div className="modal-footer">

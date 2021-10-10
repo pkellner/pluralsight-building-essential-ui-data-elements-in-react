@@ -1,5 +1,3 @@
-
-
 function NotesModalHeader() {
   return (
     <div className="modal-header bg-info text-white">
@@ -8,8 +6,7 @@ function NotesModalHeader() {
       </h5>
       <button
         type="button"
-        onClick={() => {
-        }}
+        onClick={() => {}}
         className="close text-white"
         data-dismiss="modal"
         aria-label="Close"

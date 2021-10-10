@@ -2,8 +2,12 @@ import { NotesModalContext } from "./App";
 import { useContext } from "react";
 
 function Menu() {
-  const { setModalNoteId, setModalNoteTitle, setModalNoteDescription, setModalShow } =
-    useContext(NotesModalContext);
+  const {
+    setModalNoteId,
+    setModalNoteTitle,
+    setModalNoteDescription,
+    setModalShow,
+  } = useContext(NotesModalContext);
 
   function createNoteFn() {
     setModalNoteId(0);

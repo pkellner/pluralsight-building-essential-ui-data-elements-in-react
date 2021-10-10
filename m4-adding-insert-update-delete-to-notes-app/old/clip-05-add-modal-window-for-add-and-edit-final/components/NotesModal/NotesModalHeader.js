@@ -1,5 +1,5 @@
 import { NotesModalContext } from "../App";
-import {useContext} from "react";
+import { useContext } from "react";
 
 function NotesModalHeader() {
   const { setModalShow, modalNoteId } = useContext(NotesModalContext);
