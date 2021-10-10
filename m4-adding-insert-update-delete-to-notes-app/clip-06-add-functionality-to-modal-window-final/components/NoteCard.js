@@ -59,7 +59,7 @@ function NoteCard({ note }) {
             </a>
           </span>
           <span className="mr-2">
-            <a href="#" onClick={() => editNoteFn(modalNoteId)}>
+            <a href="#" onClick={() => editNoteFn(note.id)}>
               <i className="fa fa-edit fa-lg"></i>
             </a>
           </span>
