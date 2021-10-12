@@ -3,13 +3,19 @@ import { useContext } from "react";
 
 function NoteCard({ note }) {
   const { notesData, deleteNote } = useContext(NotesContext);
-  const { setModalNoteId, setModalShow, setModalNoteTitle, setModalNoteDescription } =
-    useContext(NotesModalContext);
+  const {
+    setModalNoteId,
+    setModalShow,
+    setModalNoteTitle,
+    setModalNoteDescription,
+  } = useContext(NotesModalContext);
 
   function editNoteFn(noteId) {
     setModalNoteId(noteId);
-    setModalNoteTitle(notesData.find(rec => rec.id === noteId).title);
-    setModalNoteDescription(notesData.find(rec => rec.id === noteId).description);
+    setModalNoteTitle(notesData.find((rec) => rec.id === noteId).title);
+    setModalNoteDescription(
+      notesData.find((rec) => rec.id === noteId).description
+    );
     setModalShow(true);
   }
 

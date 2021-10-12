@@ -1,12 +1,14 @@
 import { NotesModalContext } from "../app";
 import { useContext } from "react";
 
-
 function NotesModalBody() {
   const {
-    modalNoteTitle, setModalNoteTitle,
-    modalNoteDescription, setModalNoteDescription,
-  } = useContext(NotesModalContext); debugger;
+    modalNoteTitle,
+    setModalNoteTitle,
+    modalNoteDescription,
+    setModalNoteDescription,
+  } = useContext(NotesModalContext);
+  debugger;
   return (
     <div className="modal-body">
       <div className="notes-box">
@@ -18,7 +20,7 @@ function NotesModalBody() {
                   <label>Note Title</label>
                   <input
                     value={modalNoteTitle}
-                    onChange={event => {
+                    onChange={(event) => {
                       setModalNoteTitle(event.target.value);
                     }}
                     type="text"
@@ -31,7 +33,7 @@ function NotesModalBody() {
                 <label>Note Description</label>
                 <textarea
                   value={modalNoteDescription}
-                  onChange={event => {
+                  onChange={(event) => {
                     setModalNoteDescription(event.target.value);
                   }}
                   className="form-control"

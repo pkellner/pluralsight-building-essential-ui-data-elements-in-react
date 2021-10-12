@@ -3,6 +3,7 @@ import { useContext } from "react";
 
 function NotesModalHeader() {
   const { setModalShow, modalNoteId } = useContext(NotesModalContext);
+
   return (
     <div className="modal-header bg-info text-white">
       <h5 className="modal-title text-white">

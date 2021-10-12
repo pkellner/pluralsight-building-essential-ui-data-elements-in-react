@@ -5,16 +5,20 @@ import { NotesModalContext } from "../App";
 import { useContext } from "react";
 
 function NotesModal() {
-
   const { modalShow } = useContext(NotesModalContext);
-  const cssShowHide = modalShow && modalShow === true ? "modal show-modal" : "modal hide-modal";
+  const cssShowHide =
+    modalShow && modalShow === true ? "modal show-modal" : "modal hide-modal";
 
   return (
     <>
       <style jsx>
         {`
-          .show-modal { display: block; }
-          .hide-modal { display: none; }
+          .show-modal {
+            display: block;
+          }
+          .hide-modal {
+            display: none;
+          }
         `}
       </style>
       <div role="dialog" className={cssShowHide}>

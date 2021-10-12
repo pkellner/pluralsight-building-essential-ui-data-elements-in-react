@@ -8,26 +8,34 @@ function NotesModalFooter() {
   return (
     <div className="modal-footer">
       {modalNoteId !== 0 && (
-        <button onClick={() => {
-          updateNote(modalNoteId, modalNoteTitle, modalNoteDescription);
-        }} className="float-left btn btn-success">
+        <button
+          onClick={() => {
+            updateNote(modalNoteId, modalNoteTitle, modalNoteDescription);
+          }}
+          className="float-left btn btn-success"
+        >
           Save
         </button>
       )}
 
       <button
         className="btn btn-danger"
-        onClick={() => { setModalShow(false);}}
+        onClick={() => {
+          setModalShow(false);
+        }}
         data-dismiss="modal"
       >
         Discard
       </button>
 
       {modalNoteId === 0 && (
-        <button className="btn btn-info" onClick={() => {
-          createNote(modalNoteTitle, modalNoteDescription);
-          setModal(false);
-         }}>
+        <button
+          className="btn btn-info"
+          onClick={() => {
+            createNote(modalNoteTitle, modalNoteDescription);
+            setModal(false);
+          }}
+        >
           Add
         </button>
       )}
