@@ -1,4 +1,4 @@
-import { NotesModalContext } from "../app";
+import { NotesModalContext } from "../App";
 import { useContext } from "react";
 
 
@@ -6,7 +6,7 @@ function NotesModalBody() {
   const {
     modalNoteTitle, setModalNoteTitle,
     modalNoteDescription, setModalNoteDescription,
-  } = useContext(NotesModalContext); debugger;
+  } = useContext(NotesModalContext);
   return (
     <div className="modal-body">
       <div className="notes-box">

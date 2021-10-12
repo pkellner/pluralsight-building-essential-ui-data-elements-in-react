@@ -10,6 +10,7 @@ function NotesModalFooter() {
       {modalNoteId !== 0 && (
         <button onClick={() => {
           updateNote(modalNoteId, modalNoteTitle, modalNoteDescription);
+          setModalShow(false);
         }} className="float-left btn btn-success">
           Save
         </button>

@@ -1,9 +1,8 @@
 import NotesModalHeader from "./NotesModalHeader";
 import NotesModalBody from "./NotesModalBody";
 import NotesModalFooter from "./NotesModalFooter";
-import { useContext } from "react";
 import { NotesModalContext } from "../App";
-
+import { useContext } from "react";
 function NotesModal() {
   const { modalShow } = useContext(NotesModalContext);
 
