@@ -14,13 +14,13 @@ export const NotesContext = createContext({
 
 export const NotesModalContext = createContext({
   modalShow: false,
-  setModalShow: () => { },
+  setModalShow: () => {},
   modalNoteId: 0,
-  setModalNoteId: () => { },
+  setModalNoteId: () => {},
   modalTitle: "",
-  setModalTitle: () => { },
+  setModalTitle: () => {},
   modalDescription: "",
-  setModalDescription: () => { },
+  setModalDescription: () => {},
 });
 
 function App() {
@@ -39,7 +39,7 @@ function App() {
   return (
     <div className="container">
       <NotesContext.Provider value={contextValue}>
-        <NotesModalContext.Provider value={contextValueNotesModal} >
+        <NotesModalContext.Provider value={contextValueNotesModal}>
           <Menu />
           <NoteList />
         </NotesModalContext.Provider>

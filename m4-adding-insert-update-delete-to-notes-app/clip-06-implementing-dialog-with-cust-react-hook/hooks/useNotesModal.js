@@ -1,7 +1,6 @@
 import { useState } from "react";
 
 function useNotesModal() {
-
   const [modalShow, setModalShow] = useState(false);
 
   const [modalNoteId, setModalNoteId] = useState(0);
@@ -9,11 +8,15 @@ function useNotesModal() {
   const [modalNoteDescription, setModalNoteDescription] = useState("");
 
   return {
-    modalShow, setModalShow,
+    modalShow,
+    setModalShow,
 
-    modalNoteId, setModalNoteId,
-    modalNoteTitle, setModalNoteTitle,
-    modalNoteDescription, setModalNoteDescription,
+    modalNoteId,
+    setModalNoteId,
+    modalNoteTitle,
+    setModalNoteTitle,
+    modalNoteDescription,
+    setModalNoteDescription,
   };
 }
 

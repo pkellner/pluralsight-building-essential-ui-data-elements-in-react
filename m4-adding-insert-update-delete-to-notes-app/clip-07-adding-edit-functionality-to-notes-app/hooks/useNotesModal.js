@@ -2,6 +2,7 @@ import { useState } from "react";
 
 function useNotesModal() {
   const [modalShow, setModalShow] = useState(false);
+
   const [modalNoteId, setModalNoteId] = useState(0);
   const [modalNoteTitle, setModalNoteTitle] = useState("");
   const [modalNoteDescription, setModalNoteDescription] = useState("");
@@ -9,6 +10,7 @@ function useNotesModal() {
   return {
     modalShow,
     setModalShow,
+
     modalNoteId,
     setModalNoteId,
     modalNoteTitle,
