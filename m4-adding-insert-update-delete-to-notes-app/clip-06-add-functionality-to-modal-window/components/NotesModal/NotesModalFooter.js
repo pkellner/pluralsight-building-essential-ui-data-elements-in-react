@@ -27,7 +27,7 @@ function NotesModalFooter() {
       {modalNoteId === 0 && (
         <button className="btn btn-info" onClick={() => {
           createNote(modalNoteTitle, modalNoteDescription);
-          setModal(false);
+          setModalShow(false);
          }}>
           Add
         </button>
