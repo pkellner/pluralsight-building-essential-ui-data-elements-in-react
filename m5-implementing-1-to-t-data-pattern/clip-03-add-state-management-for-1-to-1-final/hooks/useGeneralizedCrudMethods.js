@@ -16,7 +16,7 @@ export function useGeneralizedCrudMethods(initialData) {
       }
     }
     getData();
-  }, [initialData]);
+  }, []);
 
   function createRecord(createObject) {
     async function addData() {

@@ -1,0 +1,14 @@
+[
+  {
+    "id": "101",
+    "noteId": "1",
+    "important": 1,
+    "pinned": 0
+  },
+  {
+    "id": "102",
+    "noteId": "3",
+    "important": 0,
+    "pinned": 1
+  }
+]

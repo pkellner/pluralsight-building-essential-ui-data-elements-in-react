@@ -1,5 +1,6 @@
 import { useState } from "react";
 import notes from "../data/notes.json";
+import noteAttributes from "../data/noteAttributes.json";
 import { v4 as uuidv4 } from "uuid";
 import { useGeneralizedCrudMethods } from "./useGeneralizedCrudMethods";
 
@@ -32,7 +33,7 @@ function useNotes() {
     createNotesData(newNote);
   }
 
-  function updateNote(id, title, description) {
+  function updateNote(id, title, description, pinned, important) {
     if (title || description) {
       const updateObject = {
         title,
