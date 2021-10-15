@@ -21,11 +21,7 @@ function useNotes() {
     createNotesData(newNote);
   }
 
-  function updateNote(
-    id,
-    title,
-    description
-  ) {
+  function updateNote(id, title, description) {
     const updateObject = {
       title,
       description,
