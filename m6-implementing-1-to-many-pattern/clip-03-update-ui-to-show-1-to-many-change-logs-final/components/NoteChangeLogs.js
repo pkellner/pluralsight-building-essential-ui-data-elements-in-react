@@ -19,6 +19,7 @@ function NoteChangeLogs() {
     });
   }
 
+  // This is the 1 of 1-to-many
   function NotesListBase() {
     return (
       <div className="col-6 ">
@@ -58,6 +59,7 @@ function NoteChangeLogs() {
     );
   }
 
+  // this is the many of the 1-to-many
   function NotesListDetail() {
     return (
       <div className="col-6  blue-border-rounded">
