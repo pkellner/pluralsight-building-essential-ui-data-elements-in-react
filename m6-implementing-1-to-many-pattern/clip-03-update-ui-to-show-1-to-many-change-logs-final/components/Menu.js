@@ -35,45 +35,23 @@ function Menu({ currentTab, setCurrentTab }) {
     );
   }
 
-  function AllNotesTabItem() {
+  function TabItem({tabValue,tabText}) {
     return (
       <li className="nav-item">
         <a
           href="#"
           onClick={() => {
-            setCurrentTab("notes");
+            setCurrentTab(tabValue);
           }}
           className={
-            currentTab === "notes"
+            tabValue === currentTab
               ? "nav-link rounded-pill note-link d-flex align-items-center px-2 px-md-3 mr-0 mr-md-2 active"
               : "nav-link rounded-pill note-link d-flex align-items-center px-2 px-md-3 mr-0 mr-md-2"
           }
           id="all-category"
         >
           <i className="icon-layers mr-1"></i>
-          <span className="d-none d-md-block">All Notes</span>
-        </a>
-      </li>
-    );
-  }
-
-  function ChangeLogsTabItem() {
-    return (
-      <li className="nav-item">
-        <a
-          href="#"
-          onClick={() => {
-            setCurrentTab("logs");
-          }}
-          className={
-            currentTab === "logs"
-              ? "nav-link rounded-pill note-link d-flex align-items-center px-2 px-md-3 mr-0 mr-md-2 active"
-              : "nav-link rounded-pill note-link d-flex align-items-center px-2 px-md-3 mr-0 mr-md-2"
-          }
-          id="all-category"
-        >
-          <i className="icon-layers mr-1"></i>
-          <span className="d-none d-md-block">Change Logs</span>
+          <span className="d-none d-md-block">{tabText}</span>
         </a>
       </li>
     );
@@ -81,8 +59,11 @@ function Menu({ currentTab, setCurrentTab }) {
 
   return (
     <ul className="nav nav-pills p-3 bg-white mb-3 founded-pill align-items-center">
-      <AllNotesTabItem />
-      <ChangeLogsTabItem />
+        <TabItem tabValue="notes" tabText="All Notes"/>
+        <TabItem tabValue="logs" tabText="Change Logs"/>
+      {/*  <hr/>*/}
+      {/*<AllNotesTabItem />*/}
+      {/*<ChangeLogsTabItem />*/}
       {currentTab === "notes" && <AddNoteButton />}
     </ul>
   );
