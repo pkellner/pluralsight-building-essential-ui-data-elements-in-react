@@ -3,8 +3,13 @@ import notes from "../../data/notes.json";
 import { useGeneralizedCrudMethods } from "../useGeneralizedCrudMethods";
 
 function useUiNotes() {
-  const { data, error, createRecord, updateRecord, deleteRecord } =
-    useGeneralizedCrudMethods(notes);
+  const {
+    data,
+    error,
+    createRecord,
+    updateRecord,
+    deleteRecord,
+  } = useGeneralizedCrudMethods(notes);
 
   function createNoteUi(title, description) {
     const noteId = uuidv4();
@@ -18,7 +23,11 @@ function useUiNotes() {
     return noteId;
   }
 
-  function updateNoteUi(id, title, description) {
+  function updateNoteUi(
+    id,
+    title,
+    description
+  ) {
     if (title || description) {
       const updateObject = {
         title,
@@ -32,7 +41,13 @@ function useUiNotes() {
     deleteRecord(id);
   }
 
-  return { data, error, createNoteUi, updateNoteUi, deleteNoteUi };
+  return {
+    data,
+    error,
+    createNoteUi,
+    updateNoteUi,
+    deleteNoteUi,
+  };
 }
 
 export default useUiNotes;

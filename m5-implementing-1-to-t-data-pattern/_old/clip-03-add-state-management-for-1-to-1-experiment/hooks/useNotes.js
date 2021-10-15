@@ -21,13 +21,30 @@ function useNotes() {
   } = useUiNoteAttributes();
 
   function createNote(title, description) {
-    const noteId = createNoteUi(title, description);
-    createNoteAttributesUi(noteId, undefined, undefined);
+    const noteId = createNoteUi(
+      title,
+      description
+    );
+    createNoteAttributesUi(
+      noteId,
+      undefined,
+      undefined
+    );
   }
 
-  function updateNote(id, title, description, pinned, important) {
+  function updateNote(
+    id,
+    title,
+    description,
+    pinned,
+    important
+  ) {
     updateNoteUi(id, title, description);
-    updateNoteAttributesUi(id, pinned, important);
+    updateNoteAttributesUi(
+      id,
+      pinned,
+      important
+    );
   }
 
   function deleteNote(id) {

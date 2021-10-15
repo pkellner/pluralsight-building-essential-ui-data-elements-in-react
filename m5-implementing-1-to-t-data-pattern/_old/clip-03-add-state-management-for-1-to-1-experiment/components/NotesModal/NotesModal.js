@@ -5,9 +5,13 @@ import { NotesModalContext } from "../App";
 import { useContext } from "react";
 
 function NotesModal() {
-  const { modalShow } = useContext(NotesModalContext);
+  const { modalShow } = useContext(
+    NotesModalContext
+  );
   const cssShowHide =
-    modalShow && modalShow === true ? "modal show-modal" : "modal hide-modal";
+    modalShow && modalShow === true
+      ? "modal show-modal"
+      : "modal hide-modal";
 
   return (
     <>
@@ -21,7 +25,10 @@ function NotesModal() {
           }
         `}
       </style>
-      <div role="dialog" className={cssShowHide}>
+      <div
+        role="dialog"
+        className={cssShowHide}
+      >
         <div className="modal-dialog modal-dialog-centered">
           <div className="modal-content border-0">
             <NotesModalHeader />

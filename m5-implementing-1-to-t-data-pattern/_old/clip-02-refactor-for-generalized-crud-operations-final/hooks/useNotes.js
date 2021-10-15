@@ -24,7 +24,11 @@ function useNotes() {
     createNotesData(newNote);
   }
 
-  function updateNote(id, title, description) {
+  function updateNote(
+    id,
+    title,
+    description
+  ) {
     if (title || description) {
       const updateObject = {
         title,
@@ -38,7 +42,13 @@ function useNotes() {
     deleteNotesData(id);
   }
 
-  return { notesData, notesDataError, createNote, updateNote, deleteNote };
+  return {
+    notesData,
+    notesDataError,
+    createNote,
+    updateNote,
+    deleteNote,
+  };
 }
 
 export default useNotes;

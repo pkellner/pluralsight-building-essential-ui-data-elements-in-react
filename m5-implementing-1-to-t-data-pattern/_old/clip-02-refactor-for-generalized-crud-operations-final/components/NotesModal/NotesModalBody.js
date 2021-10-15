@@ -20,7 +20,9 @@ function NotesModalBody() {
                   <input
                     value={modalNoteTitle}
                     onChange={(event) => {
-                      setModalNoteTitle(event.target.value);
+                      setModalNoteTitle(
+                        event.target.value
+                      );
                     }}
                     type="text"
                     className="form-control"
@@ -29,11 +31,17 @@ function NotesModalBody() {
                 </div>
               </div>
               <div className="col-md-12">
-                <label>Note Description</label>
+                <label>
+                  Note Description
+                </label>
                 <textarea
-                  value={modalNoteDescription}
+                  value={
+                    modalNoteDescription
+                  }
                   onChange={(event) => {
-                    setModalNoteDescription(event.target.value);
+                    setModalNoteDescription(
+                      event.target.value
+                    );
                   }}
                   className="form-control"
                   placeholder="Description"

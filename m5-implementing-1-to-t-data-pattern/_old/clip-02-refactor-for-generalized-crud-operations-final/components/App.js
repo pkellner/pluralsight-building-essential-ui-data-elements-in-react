@@ -12,34 +12,46 @@ export const NotesContext = createContext({
   deleteNote: () => {},
 });
 
-export const NotesModalContext = createContext({
-  modalShow: false,
-  setModalShow: () => {},
-  modalNoteId: 0,
-  setModalNoteId: () => {},
-  modalTitle: "",
-  setModalTitle: () => {},
-  modalDescription: "",
-  setModalDescription: () => {},
-});
+export const NotesModalContext =
+  createContext({
+    modalShow: false,
+    setModalShow: () => {},
+    modalNoteId: 0,
+    setModalNoteId: () => {},
+    modalTitle: "",
+    setModalTitle: () => {},
+    modalDescription: "",
+    setModalDescription: () => {},
+  });
 
 function App() {
   const contextValue = useNotes();
-  const contextValueNotesModal = useNotesModal();
+  const contextValueNotesModal =
+    useNotesModal();
 
   if (contextValue.notesDataError) {
     return (
-      <div className="container">error: {contextValue.notesDataError}</div>
+      <div className="container">
+        error: {contextValue.notesDataError}
+      </div>
     );
   }
   if (!contextValue.notesData) {
-    return <div className="container">...loading</div>;
+    return (
+      <div className="container">
+        ...loading
+      </div>
+    );
   }
 
   return (
     <div className="container">
-      <NotesContext.Provider value={contextValue}>
-        <NotesModalContext.Provider value={contextValueNotesModal}>
+      <NotesContext.Provider
+        value={contextValue}
+      >
+        <NotesModalContext.Provider
+          value={contextValueNotesModal}
+        >
           <Menu />
           <NoteList />
         </NotesModalContext.Provider>

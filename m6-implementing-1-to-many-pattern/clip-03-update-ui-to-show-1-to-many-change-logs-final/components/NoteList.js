@@ -4,7 +4,8 @@ import { useContext } from "react";
 import NotesModal from "./NotesModal/NotesModal";
 
 function NoteList() {
-  const { notesData, noteChangeLogsData, noteAttributesData } = useContext(NotesContext);
+  const { notesData, noteChangeLogsData, noteAttributesData } =
+    useContext(NotesContext);
 
   function sortByDate(a, b) {
     const dateA = a.createDate;

@@ -3,8 +3,15 @@ import noteAttributes from "../../data/noteAttributes.json";
 import { useGeneralizedCrudMethods } from "../useGeneralizedCrudMethods";
 
 function useUiNoteAttributes() {
-  const { data, error, createRecord, updateRecord, deleteRecord } =
-    useGeneralizedCrudMethods(noteAttributes);
+  const {
+    data,
+    error,
+    createRecord,
+    updateRecord,
+    deleteRecord,
+  } = useGeneralizedCrudMethods(
+    noteAttributes
+  );
 
   function createNoteAttributesUi(
     noteId,
@@ -24,14 +31,24 @@ function useUiNoteAttributes() {
     }
   }
 
-  function updateNoteAttributesUi(noteId, pinned, important) {
-    if (pinned != undefined && important != undefined) {
-      const noteAttributes = data.find((rec) => rec.noteId === noteId);
+  function updateNoteAttributesUi(
+    noteId,
+    pinned,
+    important
+  ) {
+    if (
+      pinned != undefined &&
+      important != undefined
+    ) {
+      const noteAttributes = data.find(
+        (rec) => rec.noteId === noteId
+      );
       if (noteAttributes) {
         updateRecord(noteAttributes.id, {
           pinned: pinned ? 1 : 0,
           important: important ? 1 : 0,
-          updateDate: new Date().toISOString(),
+          updateDate:
+            new Date().toISOString(),
         });
       } else {
         createRecord({
@@ -39,7 +56,8 @@ function useUiNoteAttributes() {
           noteId: noteId,
           pinned: pinned ? 1 : 0,
           important: important ? 1 : 0,
-          updateDate: new Date().toISOString(),
+          updateDate:
+            new Date().toISOString(),
         });
       }
     }
@@ -48,7 +66,9 @@ function useUiNoteAttributes() {
   function deleteNoteAttributesUi(id) {
     data
       .filter((rec) => rec.noteId === id)
-      .forEach((rec) => deleteRecord(rec.id));
+      .forEach((rec) =>
+        deleteRecord(rec.id)
+      );
   }
 
   return {

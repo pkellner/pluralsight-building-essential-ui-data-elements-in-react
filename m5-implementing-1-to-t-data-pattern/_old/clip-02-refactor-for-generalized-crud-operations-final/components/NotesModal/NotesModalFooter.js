@@ -1,16 +1,28 @@
-import { NotesContext, NotesModalContext } from "../App";
+import {
+  NotesContext,
+  NotesModalContext,
+} from "../App";
 import { useContext } from "react";
 
 function NotesModalFooter() {
-  const { modalNoteId, setModalShow, modalNoteTitle, modalNoteDescription } =
-    useContext(NotesModalContext);
-  const { createNote, updateNote } = useContext(NotesContext);
+  const {
+    modalNoteId,
+    setModalShow,
+    modalNoteTitle,
+    modalNoteDescription,
+  } = useContext(NotesModalContext);
+  const { createNote, updateNote } =
+    useContext(NotesContext);
   return (
     <div className="modal-footer">
       {modalNoteId !== 0 && (
         <button
           onClick={() => {
-            updateNote(modalNoteId, modalNoteTitle, modalNoteDescription);
+            updateNote(
+              modalNoteId,
+              modalNoteTitle,
+              modalNoteDescription
+            );
             setModalShow(false);
           }}
           className="float-left btn btn-success"
@@ -33,7 +45,10 @@ function NotesModalFooter() {
         <button
           className="btn btn-info"
           onClick={() => {
-            createNote(modalNoteTitle, modalNoteDescription);
+            createNote(
+              modalNoteTitle,
+              modalNoteDescription
+            );
             setModalShow(false);
           }}
         >
