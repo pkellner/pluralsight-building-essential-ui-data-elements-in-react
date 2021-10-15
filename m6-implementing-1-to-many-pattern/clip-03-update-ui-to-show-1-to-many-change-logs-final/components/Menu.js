@@ -1,6 +1,10 @@
 import { NotesModalContext } from "./App";
 import { useContext } from "react";
 
+function AddNoteButton() {
+  return null;
+}
+
 function Menu({ currentTab, setCurrentTab }) {
   const {
     setModalNoteId,
@@ -16,8 +20,23 @@ function Menu({ currentTab, setCurrentTab }) {
     setModalShow(true);
   }
 
-  return (
-    <ul className="nav nav-pills p-3 bg-white mb-3 founded-pill align-items-center">
+  function AddNoteButton() {
+    return (
+      <li className="nav-item ml-auto">
+        <a
+          href="#"
+          onClick={createNoteFn}
+          className="nav-link btn-primary rounded-pill d-flex align-items-center px-3"
+        >
+          <i className="icon-note m-1"></i>
+          <span className="d-none d-md-block font-14">Add Notes</span>
+        </a>
+      </li>
+    );
+  }
+
+  function AllNotesTabItem() {
+    return (
       <li className="nav-item">
         <a
           href="#"
@@ -35,6 +54,11 @@ function Menu({ currentTab, setCurrentTab }) {
           <span className="d-none d-md-block">All Notes</span>
         </a>
       </li>
+    );
+  }
+
+  function ChangeLogsTabItem() {
+    return (
       <li className="nav-item">
         <a
           href="#"
@@ -52,19 +76,14 @@ function Menu({ currentTab, setCurrentTab }) {
           <span className="d-none d-md-block">Change Logs</span>
         </a>
       </li>
+    );
+  }
 
-      {currentTab === "notes" && (
-        <li className="nav-item ml-auto">
-          <a
-            href="#"
-            onClick={createNoteFn}
-            className="nav-link btn-primary rounded-pill d-flex align-items-center px-3"
-          >
-            <i className="icon-note m-1"></i>
-            <span className="d-none d-md-block font-14">Add Notes</span>
-          </a>
-        </li>
-      )}
+  return (
+    <ul className="nav nav-pills p-3 bg-white mb-3 founded-pill align-items-center">
+      <AllNotesTabItem />
+      <ChangeLogsTabItem />
+      {currentTab === "notes" && <AddNoteButton />}
     </ul>
   );
 }
