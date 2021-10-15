@@ -76,6 +76,7 @@ function NoteCard({ note }) {
         <div className="d-flex align-items-center">
           <span className="mr-2">
             <a
+                className="margin-left-right-15"
               href="#"
               onClick={() => {
                 updateNote(
