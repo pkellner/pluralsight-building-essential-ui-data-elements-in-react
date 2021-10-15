@@ -1,10 +1,7 @@
-import { useState } from "react";
+import useGeneralizedCrudMethods from "./useGeneralizedCrudMethods";
 import notes from "../data/notes.json";
-import noteAttributes from "../data/noteAttributes.json";
+import noteAttributes from "../data/noteAttributes";
 import { v4 as uuidv4 } from "uuid";
-import { useGeneralizedCrudMethods } from "./useGeneralizedCrudMethods";
-
-export const DELAYMS = 1000;
 
 function useNotes() {
   const {
@@ -34,15 +31,12 @@ function useNotes() {
   }
 
   function updateNote(id, title, description, pinned, important) {
-    if (title || description) {
-      const updateObject = {
-        title,
-        description,
-      };
-      updateNotesData(id, updateObject);
-    }
-
-    if (pinned != undefined && important != undefined) {
+    const updateObject = {
+      title,
+      description,
+    };
+    updateNotesData(id, updateObject);
+    if (pinned || important) {
       const noteAttributes = noteAttributesData.find(
         (rec) => rec.noteId === id
       );
@@ -53,7 +47,7 @@ function useNotes() {
           updateDate: new Date().toISOString(),
         });
       } else {
-        createNoteAttributesData({
+        createNoteAttributesData(noteAttributes.id, {
           id: uuidv4(),
           noteId: id,
           pinned: pinned ? 1 : 0,

@@ -1,7 +1,10 @@
-import useGeneralizedCrudMethods from "./useGeneralizedCrudMethods";
+import { useState } from "react";
 import notes from "../data/notes.json";
-import noteAttributes from "../data/noteAttributes";
+import noteAttributes from "../data/noteAttributes.json";
 import { v4 as uuidv4 } from "uuid";
+import { useGeneralizedCrudMethods } from "./useGeneralizedCrudMethods";
+
+export const DELAYMS = 1000;
 
 function useNotes() {
   const {
@@ -18,7 +21,9 @@ function useNotes() {
     createRecord: createNoteAttributesData,
     updateRecord: updateNoteAttributesData,
     deleteRecord: deleteNoteAttributesData,
-  } = useGeneralizedCrudMethods(noteAttributes);
+  } = useGeneralizedCrudMethods(
+    noteAttributes
+  );
 
   function createNote(title, description) {
     const newNote = {
@@ -30,29 +35,47 @@ function useNotes() {
     createNotesData(newNote);
   }
 
-  function updateNote(id, title, description, pinned, important) {
-    const updateObject = {
-      title,
-      description,
-    };
-    updateNotesData(id, updateObject);
-    if (pinned || important) {
-      const noteAttributes = noteAttributesData.find(
-        (rec) => rec.noteId === id
-      );
+  function updateNote(
+    id,
+    title,
+    description,
+    pinned,
+    important
+  ) {
+    if (title || description) {
+      const updateObject = {
+        title,
+        description,
+      };
+      updateNotesData(id, updateObject);
+    }
+
+    if (
+      pinned != undefined &&
+      important != undefined
+    ) {
+      const noteAttributes =
+        noteAttributesData.find(
+          (rec) => rec.noteId === id
+        );
       if (noteAttributes) {
-        updateNoteAttributesData(noteAttributes.id, {
-          pinned: pinned ? 1 : 0,
-          important: important ? 1 : 0,
-          updateDate: new Date().toISOString(),
-        });
+        updateNoteAttributesData(
+          noteAttributes.id,
+          {
+            pinned: pinned ? 1 : 0,
+            important: important ? 1 : 0,
+            updateDate:
+              new Date().toISOString(),
+          }
+        );
       } else {
-        createNoteAttributesData(noteAttributes.id, {
+        createNoteAttributesData({
           id: uuidv4(),
           noteId: id,
           pinned: pinned ? 1 : 0,
           important: important ? 1 : 0,
-          updateDate: new Date().toISOString(),
+          updateDate:
+            new Date().toISOString(),
         });
       }
     }
@@ -63,7 +86,9 @@ function useNotes() {
 
     noteAttributesData
       .filter((rec) => rec.noteId === id)
-      .forEach((rec) => deleteNoteAttributesData(rec.id));
+      .forEach((rec) =>
+        deleteNoteAttributesData(rec.id)
+      );
   }
 
   return {
