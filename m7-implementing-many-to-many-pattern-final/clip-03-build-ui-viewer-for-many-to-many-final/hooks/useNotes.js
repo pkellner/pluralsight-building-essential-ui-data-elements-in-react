@@ -36,7 +36,6 @@ function useNotes() {
     data: noteOnTagsData,
     error: noteOnTagsDataError,
     updateNoteTags,
-    deleteNoteOnTagsByNoteId,
   } = useEntityNoteOnTags();
 
   function createNote(title, description, tagIdsIn, tagNamesIn) {
@@ -63,7 +62,6 @@ function useNotes() {
   function deleteNote(id) {
     deleteNoteEntity(id);
     deleteNoteAttributesEntity(id);
-    deleteNoteOnTagsByNoteId(id);
   }
 
   return {
