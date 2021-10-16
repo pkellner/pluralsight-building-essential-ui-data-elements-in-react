@@ -2,8 +2,14 @@ import { NotesContext, NotesModalContext } from "./App";
 import { useContext } from "react";
 
 function NoteCard({ note }) {
-  const { notesData, noteAttributesData, updateNote, deleteNote } =
-    useContext(NotesContext);
+  const {
+    notesData,
+    noteAttributesData,
+    tagsData,
+    noteOnTagsData,
+    updateNote,
+    deleteNote,
+  } = useContext(NotesContext);
   const {
     setModalNoteId,
     setModalShow,
@@ -30,6 +36,17 @@ function NoteCard({ note }) {
 
   const notePinned = noteAttributes?.pinned === 1 ? true : false;
   const noteImportant = noteAttributes?.important === 1 ? true : false;
+
+  const tagsDataDictionary = tagsData
+    ? Object.fromEntries(tagsData.map(({ id, tagName }) => [id, tagName]))
+    : {};
+  const noteTags = noteOnTagsData
+    ? noteOnTagsData
+        .filter((r) => r.noteId === note.id)
+        .map((r) => {
+          return { ...r, tagName: tagsDataDictionary[r.tagId] };
+        })
+    : [];
 
   return (
     <div className="col-md-4 single-note-item all-category">
@@ -76,7 +93,7 @@ function NoteCard({ note }) {
         <div className="d-flex align-items-center">
           <span className="mr-2">
             <a
-              className="margin-left-right-15"
+              className=""
               href="#"
               onClick={() => {
                 updateNote(
@@ -96,14 +113,59 @@ function NoteCard({ note }) {
                 }
               ></i>
             </a>
+          </span>
+          <span className="mr-2">
             <a href="#" onClick={() => deleteNoteFn(note.id)}>
               <i className="fa fa-trash fa-lg"></i>
             </a>
           </span>
+
           <span className="mr-2">
             <a href="#" onClick={() => editNoteFn(note.id)}>
               <i className="fa fa-edit fa-lg"></i>
             </a>
+          </span>
+
+          <span className="mr-2 container">
+            <div className="row margin-left-right-15">
+              {noteTags
+                .sort(function (a, b) {
+                  const textA = a?.tagName?.toUpperCase();
+                  const textB = b?.tagName?.toUpperCase();
+                  return textA < textB ? -1 : textA > textB ? 1 : 0;
+                })
+                .map((noteTag) => {
+                  return (
+                    <div key={noteTag.id}>
+                      <span className="textbox-tag">
+                        {noteTag.tagName}&nbsp;
+                        <a
+                          href="#"
+                          onClick={() => {
+                            const tagIdsForNote = noteTags
+                              .filter((rec) => {
+                                return rec.tagId != noteTag.tagId;
+                              })
+                              .map((nt) => nt.tagId);
+                            updateNote(
+                              note.id,
+                              undefined,
+                              undefined,
+                              undefined,
+                              undefined,
+                              tagIdsForNote,
+                              []
+                            );
+                          }}
+                        >
+                          {" "}
+                          <i className="icon fa fa-times-circle"></i>{" "}
+                        </a>
+                      </span>
+                    </div>
+                  );
+                })}
+            </div>
           </span>
         </div>
       </div>

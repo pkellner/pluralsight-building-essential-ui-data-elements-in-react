@@ -7,6 +7,7 @@ function useEntityNoteOnTags() {
     useGeneralizedCrudMethods(noteOnTags);
 
   function updateNoteTags(tagIdsToSet, noteId) {
+
     if (!tagIdsToSet || !noteId) {
       return;
     }
@@ -22,7 +23,7 @@ function useEntityNoteOnTags() {
     );
 
     const tagIdsToDelete = tagIdsOnNote.filter(function (tagId) {
-      return !tagIdsToSet.includes(tagId);
+      return !tagIds.includes(tagId);
     });
 
     tagIdsToAdd.forEach((tagId) => {
@@ -34,25 +35,8 @@ function useEntityNoteOnTags() {
       });
     });
 
-    const noteOnTagRecIdsToDelete = data
-      .filter(function (noteOnTagRec) {
-        return (
-          noteOnTagRec.noteId === noteId &&
-          tagIdsToDelete.includes(noteOnTagRec.tagId)
-        );
-      })
-      .map((rec) => rec.id);
-
-    noteOnTagRecIdsToDelete.forEach((id) => {
-      deleteRecord(id);
-    });
-  }
-
-  function deleteNoteOnTagsByNoteId(noteId) {
-    data.forEach(function (rec) {
-      if (rec.noteId === noteId) {
-        deleteRecord(rec.id);
-      }
+    tagIdsToDelete.forEach((tagId) => {
+      deleteRecord(tagId);
     });
   }
 
@@ -60,7 +44,6 @@ function useEntityNoteOnTags() {
     data,
     error,
     updateNoteTags,
-    deleteNoteOnTagsByNoteId,
   };
 }
 
