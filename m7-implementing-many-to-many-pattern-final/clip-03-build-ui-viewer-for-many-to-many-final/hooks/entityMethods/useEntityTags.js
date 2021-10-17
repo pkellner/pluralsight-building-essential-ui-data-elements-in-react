@@ -6,8 +6,8 @@ function useEntityTags() {
   const { data, error, createRecord } = useGeneralizedCrudMethods(tags);
 
   // creates new tags as necessary and returns full list of tagIds for what is passed in with no dups
-  function createTagsAndMerge(tagIdsIn, tagNamesInString) {
-    if (!tagIdsIn && !tagNamesInString) return undefined;
+  function createTagsAndMerge(tagIdsIn, tagNamesInString = "") {
+    if (!tagIdsIn) return undefined;
 
     const tagNamesIn = tagNamesInString
       ? tagNamesInString.split(",").filter((a) => a && a.length > 0)

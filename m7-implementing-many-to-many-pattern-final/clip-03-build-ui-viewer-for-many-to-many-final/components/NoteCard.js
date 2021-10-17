@@ -192,7 +192,7 @@ noteTags:
                             undefined,
                             undefined,
                             tagIdsForNote,
-                            []
+                            undefined
                           );
                         }}
                       >
