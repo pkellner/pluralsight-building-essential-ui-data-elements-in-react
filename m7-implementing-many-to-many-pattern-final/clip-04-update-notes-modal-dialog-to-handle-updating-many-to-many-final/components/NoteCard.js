@@ -15,13 +15,23 @@ function NoteCard({ note }) {
     setModalShow,
     setModalNoteTitle,
     setModalNoteDescription,
+    setModalNoteTagIds,
+    setTagNamesNewValue,
   } = useContext(NotesModalContext);
 
   function editNoteFn(noteId) {
     setModalNoteId(noteId);
+    setTagNamesNewValue("");
     setModalNoteTitle(notesData.find((rec) => rec.id === noteId).title);
     setModalNoteDescription(
       notesData.find((rec) => rec.id === noteId).description
+    );
+    setModalNoteTagIds(
+      noteOnTagsData
+        .filter(function (rec) {
+          return rec.noteId === noteId;
+        })
+        .map((rec) => rec.tagId)
     );
     setModalShow(true);
   }
@@ -78,7 +88,9 @@ noteTags:
               undefined,
               undefined,
               !notePinned,
-              noteImportant
+              noteImportant,
+                undefined,
+                undefined,
             );
           }}
         >
@@ -192,7 +204,7 @@ noteTags:
                             undefined,
                             undefined,
                             tagIdsForNote,
-                            []
+                            undefined,
                           );
                         }}
                       >
