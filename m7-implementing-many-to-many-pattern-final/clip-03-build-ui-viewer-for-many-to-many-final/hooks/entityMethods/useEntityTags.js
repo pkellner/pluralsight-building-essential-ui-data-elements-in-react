@@ -6,8 +6,13 @@ function useEntityTags() {
   const { data, error, createRecord } = useGeneralizedCrudMethods(tags);
 
   // creates new tags as necessary and returns full list of tagIds for what is passed in with no dups
-  function createTagsAndMerge(tagIds = [], tagNamesIn = []) {
-    //const tagIds = tagIdsIn ? [...tagIdsIn] : [];
+  function createTagsAndMerge(tagIdsIn, tagNamesInString) {
+    if (!tagIdsIn && !tagNamesInString) return undefined;
+
+    const tagNamesIn = tagNamesInString
+      ? tagNamesInString.split(",").filter((a) => a && a.length > 0)
+      : [];
+    const tagIds = tagIdsIn ? [...tagIdsIn] : [];
     const tagsNamesAllUppercase = data?.map((r) => r.tagName.toUpperCase());
     tagNamesIn
       .filter((rec) => {
@@ -18,7 +23,7 @@ function useEntityTags() {
           const tagNameValue = tagsNamesAllUppercase.find(
             (r) => r === tag.toUpperCase()
           );
-          const id = tagsData?.find(
+          const id = data?.find(
             (r) => r.tagName.toUpperCase() === tagNameValue
           ).id;
           if (!tagIds.includes(id)) {

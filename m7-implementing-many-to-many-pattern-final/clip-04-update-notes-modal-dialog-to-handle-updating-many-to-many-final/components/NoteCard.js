@@ -89,8 +89,8 @@ noteTags:
               undefined,
               !notePinned,
               noteImportant,
-                undefined,
-                undefined,
+              undefined,
+              undefined
             );
           }}
         >
@@ -204,7 +204,7 @@ noteTags:
                             undefined,
                             undefined,
                             tagIdsForNote,
-                            undefined,
+                            undefined
                           );
                         }}
                       >

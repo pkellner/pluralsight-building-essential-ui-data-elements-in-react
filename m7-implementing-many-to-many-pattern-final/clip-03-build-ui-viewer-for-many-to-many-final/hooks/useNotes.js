@@ -39,9 +39,12 @@ function useNotes() {
     deleteNoteOnTagsByNoteId,
   } = useEntityNoteOnTags();
 
+  // createNote does not support adding important or pinned
   function createNote(title, description, tagIdsIn, tagNamesIn) {
     const noteId = createNoteEntity(title, description);
     createNoteChangeLogsEntity(noteId, "CREATE");
+    const tagIds = createTagsAndMerge(tagIdsIn, tagNamesIn);
+    updateNoteTags(tagIds, noteId);
   }
 
   function updateNote(
