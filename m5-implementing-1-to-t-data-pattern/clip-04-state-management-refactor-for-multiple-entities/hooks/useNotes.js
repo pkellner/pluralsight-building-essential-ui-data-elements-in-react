@@ -1,69 +1,45 @@
-import useGeneralizedCrudMethods from "./useGeneralizedCrudMethods";
 import notes from "../data/notes.json";
-import noteAttributes from "../data/noteAttributes";
-import { v4 as uuidv4 } from "uuid";
+import useEntityNotes from "./hooks/useEntityNotes";
+import useEntityNoteAttributes from
+  "./hooks/useEntityNoteAttributes";
 
 function useNotes() {
   const {
     data: notesData,
     error: notesDataError,
-    createRecord: createNotesData,
-    updateRecord: updateNotesData,
-    deleteRecord: deleteNotesData,
-  } = useGeneralizedCrudMethods(notes);
+    createNoteEntity,
+    updateNoteEntity,
+    deleteNoteEntity,
+  } = useEntityNotes(notes);
 
   const {
     data: noteAttributesData,
     error: noteAttributesDataError,
-    createRecord: createNoteAttributesData,
-    updateRecord: updateNoteAttributesData,
-    deleteRecord: deleteNoteAttributesData,
-  } = useGeneralizedCrudMethods(noteAttributes);
+    updateNoteAttributesEntity,
+    deleteNoteAttributesEntity,
+  } = useEntityNoteAttributes();
 
-  function createNote(title, description) {
-    const newNote = {
-      id: uuidv4(),
-      title,
-      description,
-      createDate: new Date().toISOString(),
-    };
-    createNotesData(newNote);
+  function createNote(
+    title,
+    description
+  ) {
+    createNoteEntity(title, description);
   }
 
-  function updateNote(id, title, description, pinned, important) {
-    const updateObject = {
-      title,
-      description,
-    };
-    updateNotesData(id, updateObject);
-    if (pinned || important) {
-      const noteAttributes = noteAttributesData.find(
-        (rec) => rec.noteId === id
-      );
-      if (noteAttributes) {
-        updateNoteAttributesData(noteAttributes.id, {
-          pinned: pinned ? 1 : 0,
-          important: important ? 1 : 0,
-          updateDate: new Date().toISOString(),
-        });
-      } else {
-        createNoteAttributesData(noteAttributes.id, {
-          id: uuidv4(),
-          noteId: id,
-          pinned: pinned ? 1 : 0,
-          important: important ? 1 : 0,
-          updateDate: new Date().toISOString(),
-        });
-      }
-    }
+  function updateNote(
+    id,
+    title,
+    description,
+    pinned,
+    important
+  ) {
+    updateNoteEntity(title, description);
+    updateNoteAttributesEntity(id, pinned, important);
   }
 
   function deleteNote(id) {
-    deleteNotesData(id);
-
-    noteAttributesData
-      .filter((rec) => rec.noteId === id)
-      .forEach((rec) => deleteNoteAttributesData(rec.id));
+    deleteNoteEntity(id);
+    deleteNoteAttributesEntity(id);
   }
 
   return {
