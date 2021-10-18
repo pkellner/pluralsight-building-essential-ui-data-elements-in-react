@@ -1,7 +1,6 @@
 import notes from "../data/notes.json";
-import useEntityNotes from "./hooks/useEntityNotes";
-import useEntityNoteAttributes from
-  "./hooks/useEntityNoteAttributes";
+import useEntityNotes from "./entityHooks/useEntityNotes";
+import useEntityNoteAttributes from "./entityHooks/useEntityNoteAttributes";
 
 function useNotes() {
   const {
@@ -33,7 +32,7 @@ function useNotes() {
     pinned,
     important
   ) {
-    updateNoteEntity(title, description);
+    updateNoteEntity(id, title, description);
     updateNoteAttributesEntity(id, pinned, important);
   }
 

@@ -18,7 +18,7 @@ function useEntityNotes() {
     createRecord(newNote);
   }
 
-  function updateNoteEntity(title, description) {
+  function updateNoteEntity(id, title, description) {
     const updateObject = {
       title,
       description,

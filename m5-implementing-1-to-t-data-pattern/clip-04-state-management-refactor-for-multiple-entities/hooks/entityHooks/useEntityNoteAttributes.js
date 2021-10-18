@@ -44,7 +44,7 @@ function useEntityNoteAttributes() {
   }
 
   function deleteNoteAttributesEntity(id) {
-    noteAttributesData
+    data
       .filter(
         (rec) => rec.noteId === id
       )
