@@ -3,10 +3,18 @@ import notes from "../../data/notes.json";
 import useGeneralizedCrudMethods from "../useGeneralizedCrudMethods";
 
 function useEntityNotes() {
-  const { data, error, createRecord, updateRecord, deleteRecord } =
-    useGeneralizedCrudMethods(notes);
+  const {
+    data,
+    error,
+    createRecord,
+    updateRecord,
+    deleteRecord,
+  } = useGeneralizedCrudMethods(notes);
 
-  function createNoteEntity(title, description) {
+  function createNoteEntity(
+    title,
+    description
+  ) {
     const noteId = uuidv4();
     const newNote = {
       id: noteId,
@@ -18,7 +26,11 @@ function useEntityNotes() {
     return noteId;
   }
 
-  function updateNoteEntity(id, title, description) {
+  function updateNoteEntity(
+    id,
+    title,
+    description
+  ) {
     if (title || description) {
       const updateObject = {
         title,
@@ -32,7 +44,13 @@ function useEntityNotes() {
     deleteRecord(id);
   }
 
-  return { data, error, createNoteEntity, updateNoteEntity, deleteNoteEntity };
+  return {
+    data,
+    error,
+    createNoteEntity,
+    updateNoteEntity,
+    deleteNoteEntity,
+  };
 }
 
 export default useEntityNotes;

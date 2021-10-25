@@ -1,13 +1,23 @@
-import useGeneralizedCrudMethods from
-  "../useGeneralizedCrudMethods";
+import useGeneralizedCrudMethods from "../useGeneralizedCrudMethods";
 import noteAttributes from "../../data/noteAttributes.json";
 import { v4 as uuidv4 } from "uuid";
 
 function useEntityNoteAttributes() {
-  const { data, error, createRecord, updateRecord, deleteRecord } =
-    useGeneralizedCrudMethods(noteAttributes);
-  
-  function updateNoteAttributesEntity(noteId, pinned, important) {
+  const {
+    data,
+    error,
+    createRecord,
+    updateRecord,
+    deleteRecord,
+  } = useGeneralizedCrudMethods(
+    noteAttributes
+  );
+
+  function updateNoteAttributesEntity(
+    noteId,
+    pinned,
+    important
+  ) {
     if (pinned || important) {
       const noteAttributes =
         noteAttributesData.find(
@@ -43,7 +53,9 @@ function useEntityNoteAttributes() {
     }
   }
 
-  function deleteNoteAttributesEntity(id) {
+  function deleteNoteAttributesEntity(
+    id
+  ) {
     data
       .filter(
         (rec) => rec.noteId === id
@@ -52,10 +64,12 @@ function useEntityNoteAttributes() {
         deleteRecord(rec.id)
       );
   }
-  
+
   return {
-    data, error,
-    updateNoteAttributesEntity, deleteNoteAttributesEntity,
+    data,
+    error,
+    updateNoteAttributesEntity,
+    deleteNoteAttributesEntity,
   };
 }
 
