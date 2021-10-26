@@ -198,6 +198,25 @@ body{
     -webkit-text-stroke-color: black;
 }
 
+.fa-hollow-black {
+    color: transparent;
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: black;
+}
+
+.blue-border-rounded {
+    border: 2px solid lightgray;
+    border-radius: 5px;
+}
+.selected-row {
+    background-color: darkgray;
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+
 
 
 @media (max-width:767.98px) {

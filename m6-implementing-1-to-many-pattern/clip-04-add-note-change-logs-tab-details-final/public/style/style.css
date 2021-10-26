@@ -198,6 +198,12 @@ body{
     -webkit-text-stroke-color: black;
 }
 
+.fa-hollow-black {
+    color: transparent;
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: black;
+}
+
 .blue-border-rounded {
     border: 2px solid lightgray;
     border-radius: 5px;
@@ -209,6 +215,7 @@ body{
 .cursor-pointer {
     cursor: pointer;
 }
+
 
 
 
