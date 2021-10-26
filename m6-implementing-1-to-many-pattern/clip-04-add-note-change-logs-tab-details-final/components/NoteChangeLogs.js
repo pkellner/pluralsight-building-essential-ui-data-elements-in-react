@@ -47,11 +47,11 @@ function NoteChangeLogs() {
                       setSelectedNoteId(note.id);
                     }}
                   >
-                    <style jsx>{`
-                      .cursor-pointer {
-                        cursor: pointer;
-                      }
-                    `}</style>
+                    {/*<style jsx>{`*/}
+                    {/*  .cursor-pointer {*/}
+                    {/*    cursor: pointer;*/}
+                    {/*  }*/}
+                    {/*`}</style>*/}
                     <td>
                       <span className="cursor-pointer">{note.title}</span>
                     </td>
@@ -104,16 +104,6 @@ function NoteChangeLogs() {
 
   return (
     <>
-      <style jsx>{`
-        .blue-border-rounded {
-          border: 2px solid lightgray;
-          border-radius: 5px;
-        }
-        .selected-row {
-          background-color: darkgray;
-        }
-      `}</style>
-
       <div className="container">
         <div className="row">
           <NotesListBase />
