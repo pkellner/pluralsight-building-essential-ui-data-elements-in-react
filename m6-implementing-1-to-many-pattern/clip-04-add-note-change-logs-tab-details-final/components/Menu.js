@@ -33,7 +33,9 @@ function Menu({ currentTab, setCurrentTab }) {
           id="all-category"
         >
           <i className="icon-layers mr-1"></i>
-          <span className="d-none d-md-block">{tabText}</span>
+          <span className="d-none d-md-block">
+            {tabText}
+          </span>
         </a>
       </li>
     );
@@ -48,7 +50,9 @@ function Menu({ currentTab, setCurrentTab }) {
           className="nav-link btn-primary rounded-pill d-flex align-items-center px-3"
         >
           <i className="icon-note m-1"></i>
-          <span className="d-none d-md-block font-14">Add Notes</span>
+          <span className="d-none d-md-block font-14">
+            Add Notes
+          </span>
         </a>
       </li>
     );

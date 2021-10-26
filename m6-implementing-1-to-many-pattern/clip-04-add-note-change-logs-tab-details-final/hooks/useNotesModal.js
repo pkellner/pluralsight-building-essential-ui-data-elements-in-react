@@ -5,7 +5,8 @@ function useNotesModal() {
 
   const [modalNoteId, setModalNoteId] = useState(0);
   const [modalNoteTitle, setModalNoteTitle] = useState("");
-  const [modalNoteDescription, setModalNoteDescription] = useState("");
+  const [modalNoteDescription, setModalNoteDescription] =
+    useState("");
 
   return {
     modalShow,
