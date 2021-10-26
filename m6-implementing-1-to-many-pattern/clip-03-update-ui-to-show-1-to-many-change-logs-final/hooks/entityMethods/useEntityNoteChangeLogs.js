@@ -23,4 +23,3 @@ function useEntityNoteChangeLogs() {
 }
 
 export default useEntityNoteChangeLogs;
-

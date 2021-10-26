@@ -1,5 +1,5 @@
 function NoteChangeLog() {
-  return (<div>NoteChangeLog</div>);
+  return <div>NoteChangeLog</div>;
 }
 
 export default NoteChangeLog;
