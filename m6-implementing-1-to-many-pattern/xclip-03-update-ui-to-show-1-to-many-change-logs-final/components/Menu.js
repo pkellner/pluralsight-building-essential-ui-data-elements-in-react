@@ -1,9 +1,9 @@
 import { NotesModalContext } from "./App";
 import { useContext } from "react";
 
-function AddNoteButton() {
-  return null;
-}
+// function AddNoteButton() {
+//   return null;
+// }
 
 function Menu({ currentTab, setCurrentTab }) {
   const {
