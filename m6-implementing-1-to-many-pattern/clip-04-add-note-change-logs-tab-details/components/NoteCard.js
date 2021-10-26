@@ -2,8 +2,12 @@ import { NotesContext, NotesModalContext } from "./App";
 import { useContext } from "react";
 
 function NoteCard({ note }) {
-  const { notesData, noteAttributesData, updateNote, deleteNote } =
-    useContext(NotesContext);
+  const {
+    notesData,
+    noteAttributesData,
+    updateNote,
+    deleteNote,
+  } = useContext(NotesContext);
   const {
     setModalNoteId,
     setModalShow,
@@ -13,7 +17,9 @@ function NoteCard({ note }) {
 
   function editNoteFn(noteId) {
     setModalNoteId(noteId);
-    setModalNoteTitle(notesData.find((rec) => rec.id === noteId).title);
+    setModalNoteTitle(
+      notesData.find((rec) => rec.id === noteId).title
+    );
     setModalNoteDescription(
       notesData.find((rec) => rec.id === noteId).description
     );
@@ -25,11 +31,15 @@ function NoteCard({ note }) {
   }
 
   const noteAttributes = noteAttributesData
-    ? noteAttributesData.find((rec) => rec.noteId === note.id)
+    ? noteAttributesData.find(
+        (rec) => rec.noteId === note.id
+      )
     : { notePinned: 0, noteImportant: 0 };
 
-  const notePinned = noteAttributes?.pinned === 1 ? true : false;
-  const noteImportant = noteAttributes?.important === 1 ? true : false;
+  const notePinned =
+    noteAttributes?.pinned === 1 ? true : false;
+  const noteImportant =
+    noteAttributes?.important === 1 ? true : false;
 
   return (
     <div className="col-md-4 single-note-item all-category">
@@ -56,21 +66,28 @@ function NoteCard({ note }) {
             ></i>
           </a>
           <span className="side-stick"></span>
-          <h5 className="note-title text-truncate w-75 mb-0">{note.title}</h5>
+          <h5 className="note-title text-truncate w-75 mb-0">
+            {note.title}
+          </h5>
         </div>
 
         <p className="note-date font-12 text-muted">
-          {new Date(note.createDate).toLocaleTimeString("en", {
-            year: "numeric",
-            month: "long",
-            day: "numeric",
-            hour: "2-digit",
-            minute: "2-digit",
-          })}
+          {new Date(note.createDate).toLocaleTimeString(
+            "en",
+            {
+              year: "numeric",
+              month: "long",
+              day: "numeric",
+              hour: "2-digit",
+              minute: "2-digit",
+            }
+          )}
         </p>
 
         <div className="note-content">
-          <p className="note-inner-content text-muted">{note.description}</p>
+          <p className="note-inner-content text-muted">
+            {note.description}
+          </p>
         </div>
 
         <div className="d-flex align-items-center">
@@ -96,7 +113,10 @@ function NoteCard({ note }) {
                 }
               ></i>
             </a>
-            <a href="#" onClick={() => deleteNoteFn(note.id)}>
+            <a
+              href="#"
+              onClick={() => deleteNoteFn(note.id)}
+            >
               <i className="fa fa-trash fa-lg"></i>
             </a>
           </span>

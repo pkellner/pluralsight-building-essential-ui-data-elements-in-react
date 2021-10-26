@@ -3,12 +3,23 @@ import noteAttributes from "../../data/noteAttributes.json";
 import useGeneralizedCrudMethods from "../useGeneralizedCrudMethods";
 
 function useEntityNoteAttributes() {
-  const { data, error, createRecord, updateRecord, deleteRecord } =
-    useGeneralizedCrudMethods(noteAttributes);
+  const {
+    data,
+    error,
+    createRecord,
+    updateRecord,
+    deleteRecord,
+  } = useGeneralizedCrudMethods(noteAttributes);
 
-  function updateNoteAttributesEntity(noteId, pinned, important) {
+  function updateNoteAttributesEntity(
+    noteId,
+    pinned,
+    important
+  ) {
     if (pinned != undefined && important != undefined) {
-      const noteAttributes = data.find((rec) => rec.noteId === noteId);
+      const noteAttributes = data.find(
+        (rec) => rec.noteId === noteId
+      );
       if (noteAttributes) {
         updateRecord(noteAttributes.id, {
           pinned: pinned ? 1 : 0,

@@ -6,8 +6,9 @@ function BootstrapFontawesomeTest() {
           Conformation of Bootstrap and Fontawesome!
         </h1>
         <p className="lead">
-          This message should be contained in a bootstrap jumbotron, and the
-          list below is all the fontawesome icons used in the app.
+          This message should be contained in a bootstrap
+          jumbotron, and the list below is all the
+          fontawesome icons used in the app.
         </p>
       </div>
       <ul>

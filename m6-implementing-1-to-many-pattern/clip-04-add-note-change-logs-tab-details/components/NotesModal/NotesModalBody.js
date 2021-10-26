@@ -33,7 +33,9 @@ function NotesModalBody() {
                 <textarea
                   value={modalNoteDescription}
                   onChange={(event) => {
-                    setModalNoteDescription(event.target.value);
+                    setModalNoteDescription(
+                      event.target.value
+                    );
                   }}
                   className="form-control"
                   placeholder="Description"
