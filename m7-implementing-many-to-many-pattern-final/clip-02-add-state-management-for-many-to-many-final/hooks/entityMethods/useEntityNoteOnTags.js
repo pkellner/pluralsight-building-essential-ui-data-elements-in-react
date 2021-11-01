@@ -18,17 +18,17 @@ function useEntityNoteOnTags() {
         tagId,
         createdAt: new Date().toISOString(),
       });
-      const noteOnTagRecIdsToDelete = data.filter(rec => rec.noteId === noteId && tagIdsToDelete.
-        includes(rec.tagId)).map(rec => rec.id);
-      noteOnTagRecIdsToDelete.forEach(id => deleteRecord(id));
     });
+    const noteOnTagRecIdsToDelete = data.filter(rec => rec.noteId === noteId && tagIdsToDelete.
+      includes(rec.tagId)).map(rec => rec.id);
+    noteOnTagRecIdsToDelete.forEach(id => deleteRecord(id));
   }
   function deleteNoteOnTagsByNoteId(noteId) {
     data.forEach(rec => {
       if (rec.noteId === noteId) { deleteRecord(rec.id); }
     });
   }
-  return { data, error, updateNoteTags, deleteNoteOnTagsByNoteId };
+  return { data, error, updateNoteTags, deleteNoteOnTagsByNoteId};
 }
 
 export default useEntityNoteOnTags;

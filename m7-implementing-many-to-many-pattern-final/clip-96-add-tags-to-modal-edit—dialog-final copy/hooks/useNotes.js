@@ -39,7 +39,12 @@ function useNotes() {
     deleteNoteOnTagsByNoteId,
   } = useEntityNoteOnTags();
 
-  function createNote(title, description, tagIdsIn, tagNamesIn) {
+  function createNote(
+    title,
+    description,
+    tagIdsIn,
+    tagNamesIn
+  ) {
     // could create Id noteId here and pass in to createNoteEntity as alternative
     const noteId = createNoteEntity(title, description);
     createNoteChangeLogsEntity(noteId, "CREATE");
