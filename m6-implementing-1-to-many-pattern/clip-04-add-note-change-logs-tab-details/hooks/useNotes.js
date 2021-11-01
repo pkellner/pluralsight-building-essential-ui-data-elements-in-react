@@ -29,13 +29,7 @@ function useNotes() {
     createNoteChangeLogsEntity(noteId, "CREATE");
   }
 
-  function updateNote(
-    id,
-    title,
-    description,
-    pinned,
-    important
-  ) {
+  function updateNote(id, title, description, pinned, important) {
     updateNoteEntity(id, title, description);
     updateNoteAttributesEntity(id, pinned, important);
     createNoteChangeLogsEntity(id, "UPDATE");
