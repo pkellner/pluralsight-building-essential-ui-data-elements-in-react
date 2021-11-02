@@ -19,8 +19,10 @@ function useNotesModal() {
     setModalNoteTitle,
     modalNoteDescription,
     setModalNoteDescription,
-    tagNamesNewValue, setTagNamesNewValue,
-    modalNoteTagIds, setModalNoteTagIds,
+    tagNamesNewValue,
+    setTagNamesNewValue,
+    modalNoteTagIds,
+    setModalNoteTagIds,
   };
 }
 

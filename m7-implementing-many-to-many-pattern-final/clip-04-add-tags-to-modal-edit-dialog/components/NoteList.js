@@ -4,11 +4,8 @@ import { useContext } from "react";
 import NotesModal from "./NotesModal/NotesModal";
 
 function NoteList() {
-  const {
-    notesData,
-    noteAttributesData,
-    noteChangeLogsData,
-  } = useContext(NotesContext);
+  const { notesData, noteAttributesData, noteChangeLogsData } =
+    useContext(NotesContext);
 
   function sortByDate(a, b) {
     const dateA = a.createDate;
@@ -16,10 +13,7 @@ function NoteList() {
     return dateA > dateB ? -1 : dateA < dateB ? 1 : 0;
   }
 
-  if (
-    !(notesData && noteAttributesData && noteChangeLogsData)
-  )
-    return null;
+  if (!(notesData && noteAttributesData && noteChangeLogsData)) return null;
 
   const notesPinned = noteAttributesData
     .filter((na) => na.pinned === 1)

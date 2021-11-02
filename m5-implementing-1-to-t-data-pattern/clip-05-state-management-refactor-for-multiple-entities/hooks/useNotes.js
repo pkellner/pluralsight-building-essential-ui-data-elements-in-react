@@ -18,33 +18,13 @@ function useNotes() {
     deleteNoteAttributesEntity,
   } = useEntityNoteAttributes();
 
-  function createNote(
-    title,
-    description
-  ) {
-    createNoteEntity(
-      title,
-      description
-    );
+  function createNote(title, description) {
+    createNoteEntity(title, description);
   }
 
-  function updateNote(
-    id,
-    title,
-    description,
-    pinned,
-    important
-  ) {
-    updateNoteEntity(
-      id,
-      title,
-      description
-    );
-    updateNoteAttributesEntity(
-      id,
-      pinned,
-      important
-    );
+  function updateNote(id, title, description, pinned, important) {
+    updateNoteEntity(id, title, description);
+    updateNoteAttributesEntity(id, pinned, important);
   }
 
   function deleteNote(id) {

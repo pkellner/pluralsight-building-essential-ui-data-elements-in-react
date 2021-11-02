@@ -10,7 +10,7 @@ export const NotesContext = createContext({
   notesDataError: "",
   createNote: () => {},
   updateNote: () => {},
-  deleteNote: () => { },
+  deleteNote: () => {},
 });
 
 export const NotesModalContext = createContext({
@@ -21,9 +21,11 @@ export const NotesModalContext = createContext({
   modalTitle: "",
   setModalTitle: () => {},
   modalDescription: "",
-  setModalDescription: () => { },
-  modalNoteTagIds: [], setModalNoteTagIds: () => { },
-  tagNamesNewValue: "", setTagNamesNewValue: () => { },
+  setModalDescription: () => {},
+  modalNoteTagIds: [],
+  setModalNoteTagIds: () => {},
+  tagNamesNewValue: "",
+  setTagNamesNewValue: () => {},
 });
 
 function App() {
@@ -33,9 +35,7 @@ function App() {
 
   if (contextValue.notesDataError) {
     return (
-      <div className="container">
-        error: {contextValue.notesDataError}
-      </div>
+      <div className="container">error: {contextValue.notesDataError}</div>
     );
   }
   if (!contextValue.notesData) {
@@ -45,13 +45,8 @@ function App() {
   return (
     <div className="container">
       <NotesContext.Provider value={contextValue}>
-        <NotesModalContext.Provider
-          value={contextValueNotesModal}
-        >
-          <Menu
-            currentTab={currentTab}
-            setCurrentTab={setCurrentTab}
-          />
+        <NotesModalContext.Provider value={contextValueNotesModal}>
+          <Menu currentTab={currentTab} setCurrentTab={setCurrentTab} />
           {currentTab === "notes" && <NoteList />}
           {currentTab === "logs" && <NoteChangeLogs />}
         </NotesModalContext.Provider>

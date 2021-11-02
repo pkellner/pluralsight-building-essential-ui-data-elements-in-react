@@ -8,9 +8,7 @@ import NotesModalTags from "./NotesModalTags";
 function NotesModal() {
   const { modalShow } = useContext(NotesModalContext);
   const cssShowHide =
-    modalShow && modalShow === true
-      ? "modal show-modal"
-      : "modal hide-modal";
+    modalShow && modalShow === true ? "modal show-modal" : "modal hide-modal";
 
   return (
     <>

@@ -6,10 +6,11 @@ function NotesModalFooter() {
     modalNoteId,
     setModalShow,
     modalNoteTitle,
-    modalNoteDescription, modalNoteTagIds, tagNamesNewValue,
+    modalNoteDescription,
+    modalNoteTagIds,
+    tagNamesNewValue,
   } = useContext(NotesModalContext);
-  const { createNote, updateNote } =
-    useContext(NotesContext);
+  const { createNote, updateNote } = useContext(NotesContext);
   return (
     <div className="modal-footer">
       {modalNoteId !== 0 && (
@@ -18,7 +19,11 @@ function NotesModalFooter() {
             updateNote(
               modalNoteId,
               modalNoteTitle,
-              modalNoteDescription, undefined, undefined, modalNoteTagIds, tagNamesNewValue,
+              modalNoteDescription,
+              undefined,
+              undefined,
+              modalNoteTagIds,
+              tagNamesNewValue
             );
             setModalShow(false);
           }}
@@ -46,7 +51,7 @@ function NotesModalFooter() {
               modalNoteTitle,
               modalNoteDescription,
               modalNoteTagIds,
-              tagNamesNewValue,
+              tagNamesNewValue
             );
             setModalShow(false);
           }}
