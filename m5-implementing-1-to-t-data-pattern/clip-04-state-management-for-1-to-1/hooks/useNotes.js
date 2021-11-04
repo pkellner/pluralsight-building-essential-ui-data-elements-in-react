@@ -1,7 +1,14 @@
-import useGeneralizedCrudMethods from "./useGeneralizedCrudMethods";
-import notes from "../data/notes.json";
-import noteAttributes from "../data/noteAttributes";
-import { v4 as uuidv4 } from "uuid";
+
+
+
+
+
+
+import useEntityNotes from
+  "./entityMethods/useEntityNotes";
+import useEntityNoteAttributes from
+  "./entityMethods/useEntityNoteAttributes";
+  
 
 function useNotes() {
   const {
@@ -10,7 +17,7 @@ function useNotes() {
     createRecord: createNotesData,
     updateRecord: updateNotesData,
     deleteRecord: deleteNotesData,
-  } = useGeneralizedCrudMethods(notes);
+  } = useEntityNotes();
 
   const {
     data: noteAttributesData,
@@ -18,11 +25,17 @@ function useNotes() {
     createRecord: createNoteAttributesData,
     updateRecord: updateNoteAttributesData,
     deleteRecord: deleteNoteAttributesData,
-  } = useGeneralizedCrudMethods(noteAttributes);
+  } = useEntityNoteAttributes();
+
+  
+
+
+
+
 
   function createNote(title, description) {
     const newNote = {
-      id: uuidv4(),
+      //id: uuidv4(),
       title,
       description,
       createDate: new Date().toISOString(),
@@ -48,7 +61,7 @@ function useNotes() {
         });
       } else {
         createNoteAttributesData(noteAttributes.id, {
-          id: uuidv4(),
+          //id: uuidv4(),
           noteId: id,
           pinned: pinned ? 1 : 0,
           important: important ? 1 : 0,
