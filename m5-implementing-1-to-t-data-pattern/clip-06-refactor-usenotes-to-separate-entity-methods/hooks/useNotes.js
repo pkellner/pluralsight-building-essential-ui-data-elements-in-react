@@ -11,7 +11,7 @@ function useNotes() {
     createNoteEntity,
     updateNoteEntity,
     deleteNoteEntity,
-  } = useEntityNotes();
+  } = useEntityNotes(notes);
 
   const {
     data: noteAttributesData,
