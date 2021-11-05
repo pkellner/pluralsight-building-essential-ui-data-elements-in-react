@@ -1,8 +1,6 @@
-import useGeneralizedCrudMethods
-  from "./useGeneralizedCrudMethods";
+import useGeneralizedCrudMethods from "./useGeneralizedCrudMethods";
 import notes from "../data/notes.json";
-import noteAttributes
-  from "../data/noteAttributes";
+import noteAttributes from "../data/noteAttributes";
 import { v4 as uuidv4 } from "uuid";
 
 function useNotes() {
@@ -32,8 +30,7 @@ function useNotes() {
     createNotesData(newNote);
   }
 
-  function updateNote(id, title, description,
-    pinned, important) {
+  function updateNote(id, title, description, pinned, important) {
     const updateObject = {
       title,
       description,
