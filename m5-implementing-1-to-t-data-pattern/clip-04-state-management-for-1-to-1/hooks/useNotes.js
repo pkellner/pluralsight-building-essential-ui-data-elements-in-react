@@ -45,7 +45,7 @@ function useNotes() {
         updateDate: new Date().toISOString(),
       });
     } else {
-      createNoteAttributesData(noteAttributes.id, {
+      createNoteAttributesData({
         id: uuidv4(),
         noteId: id,
         pinned: pinned ? 1 : 0,
