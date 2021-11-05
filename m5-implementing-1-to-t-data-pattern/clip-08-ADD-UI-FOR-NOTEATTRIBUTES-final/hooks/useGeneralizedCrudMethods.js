@@ -28,11 +28,10 @@ function useGeneralizedCrudMethods(initialData, delayMs = 1000) {
   function updateRecord(id, updateObject) {
     async function updateData() {
       await new Promise((resolve) => setTimeout(resolve, delayMs));
-      debugger;
       setData(function (oriState) {
         const dataRecord = oriState.find((rec) => rec.id === id);
         for (const [key, value] of Object.entries(updateObject)) {
-          dataRecord[key] = value;
+          dataRecord[key] = value === undefined ? dataRecord[key] : value;
         }
         return oriState.map((rec) => (rec.id === id ? dataRecord : rec));
       });

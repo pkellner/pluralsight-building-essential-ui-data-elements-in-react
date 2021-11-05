@@ -7,7 +7,7 @@ function useEntityNoteAttributes() {
     useGeneralizedCrudMethods(noteAttributes);
 
   function updateNoteAttributesEntity(noteId, pinned, important) {
-    if (pinned != undefined && important != undefined) {
+    //if (pinned != undefined && important != undefined) {
       const noteAttributes = data.find((rec) => rec.noteId === noteId);
       if (noteAttributes) {
         updateRecord(noteAttributes.id, {
@@ -24,7 +24,7 @@ function useEntityNoteAttributes() {
           updateDate: new Date().toISOString(),
         });
       }
-    }
+    //}
   }
 
   function deleteNoteAttributesEntity(id) {

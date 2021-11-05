@@ -18,13 +18,13 @@ function useEntityNotes() {
 
   function updateNoteEntity(id, title, description) {
 
-    if (title || description) {
+    //if (title || description) {
       const updateObject = {
         title,
         description,
       };
       updateRecord(id, updateObject);
-    }
+    //}
   }
 
   function deleteNoteEntity(id) {

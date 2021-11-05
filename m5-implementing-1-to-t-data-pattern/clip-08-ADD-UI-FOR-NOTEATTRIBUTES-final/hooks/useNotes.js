@@ -22,8 +22,8 @@ function useNotes() {
   }
 
   function updateNote(id, title, description, pinned, important) {
-    debugger;
     updateNoteEntity(id, title, description);
+    debugger;
     updateNoteAttributesEntity(id, pinned, important);
   }
 
