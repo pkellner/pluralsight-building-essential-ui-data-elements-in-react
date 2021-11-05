@@ -4,7 +4,7 @@ import useGeneralizedCrudMethods from "../useGeneralizedCrudMethods";
 
 function useEntityNotes() {
   const { data, error, createRecord, updateRecord, deleteRecord } =
-      useGeneralizedCrudMethods(notes);
+    useGeneralizedCrudMethods(notes);
 
   function createNoteEntity(title, description) {
     const newNote = {

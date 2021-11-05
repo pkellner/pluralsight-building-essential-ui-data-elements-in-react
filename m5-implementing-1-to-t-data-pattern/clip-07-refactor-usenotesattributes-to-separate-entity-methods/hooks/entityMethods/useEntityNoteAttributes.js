@@ -1,5 +1,4 @@
-import useGeneralizedCrudMethods
-  from "../useGeneralizedCrudMethods";
+import useGeneralizedCrudMethods from "../useGeneralizedCrudMethods";
 import noteAttributes from "../../data/noteAttributes.json";
 import { v4 as uuidv4 } from "uuid";
 
@@ -9,42 +8,29 @@ function useEntityNoteAttributes() {
 
   function updateNoteAttributesEntity(noteId, pinned, important) {
     if (pinned || important) {
-      const noteAttributes =
-        data.find(
-        (rec) => rec.noteId === noteId
-      );
+      const noteAttributes = data.find((rec) => rec.noteId === noteId);
       if (noteAttributes) {
-        updateRecord(
-          noteAttributes.id,
-          {
-            pinned: pinned ? 1 : 0,
-            important: important
-              ? 1
-              : 0,
-            updateDate:
-              new Date().toISOString(),
+        updateRecord(noteAttributes.id, {
+          pinned: pinned ? 1 : 0,
+          important: important ? 1 : 0,
+          updateDate: new Date().toISOString(),
         });
       } else {
-        createRecord(
-            {
-            id: uuidv4(),
-            noteId: noteId,
-            pinned: pinned ? 1 : 0,
-            important: important ? 1 : 0,
-            updateDate: new Date().toISOString(),
-          });
+        createRecord({
+          id: uuidv4(),
+          noteId: noteId,
+          pinned: pinned ? 1 : 0,
+          important: important ? 1 : 0,
+          updateDate: new Date().toISOString(),
+        });
       }
     }
   }
 
   function deleteNoteAttributesEntity(id) {
-     data
-      .filter(
-        (rec) => rec.noteId === id
-      )
-      .forEach((rec) =>
-        deleteRecordccc(rec.id)
-      );
+    data
+      .filter((rec) => rec.noteId === id)
+      .forEach((rec) => deleteRecordccc(rec.id));
   }
 
   return {
