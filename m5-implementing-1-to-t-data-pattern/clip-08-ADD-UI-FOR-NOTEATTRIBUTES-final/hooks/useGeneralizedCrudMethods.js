@@ -14,7 +14,7 @@ function useGeneralizedCrudMethods(initialData, delayMs = 1000) {
       }
     }
     getData();
-  }, []);
+  }, [initialData, delayMs]);
 
   function createRecord(createObject) {
     async function addData() {
