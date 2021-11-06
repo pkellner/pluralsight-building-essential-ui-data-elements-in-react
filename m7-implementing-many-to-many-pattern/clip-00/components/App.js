@@ -31,9 +31,7 @@ function App() {
 
   if (contextValue.notesDataError) {
     return (
-      <div className="container">
-        error: {contextValue.notesDataError}
-      </div>
+      <div className="container">error: {contextValue.notesDataError}</div>
     );
   }
   if (!contextValue.notesData) {
@@ -43,13 +41,8 @@ function App() {
   return (
     <div className="container">
       <NotesContext.Provider value={contextValue}>
-        <NotesModalContext.Provider
-          value={contextValueNotesModal}
-        >
-          <Menu
-            currentTab={currentTab}
-            setCurrentTab={setCurrentTab}
-          />
+        <NotesModalContext.Provider value={contextValueNotesModal}>
+          <Menu currentTab={currentTab} setCurrentTab={setCurrentTab} />
           {currentTab === "notes" && <NoteList />}
           {currentTab === "logs" && <NoteChangeLogs />}
         </NotesModalContext.Provider>

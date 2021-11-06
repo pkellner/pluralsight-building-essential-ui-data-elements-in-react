@@ -7,12 +7,16 @@ function Menu({ currentTab, setCurrentTab }) {
     setModalNoteTitle,
     setModalNoteDescription,
     setModalShow,
+    setTagNamesNewValue,
+    setModalNoteTagIds,
   } = useContext(NotesModalContext);
 
   function createNoteFn() {
     setModalNoteId(0);
     setModalNoteTitle("");
     setModalNoteDescription("");
+    setTagNamesNewValue("");
+    setModalNoteTagIds([]);
     setModalShow(true);
   }
 

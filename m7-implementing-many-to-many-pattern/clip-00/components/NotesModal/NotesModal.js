@@ -7,9 +7,7 @@ import { useContext } from "react";
 function NotesModal() {
   const { modalShow } = useContext(NotesModalContext);
   const cssShowHide =
-    modalShow && modalShow === true
-      ? "modal show-modal"
-      : "modal hide-modal";
+    modalShow && modalShow === true ? "modal show-modal" : "modal hide-modal";
 
   return (
     <>

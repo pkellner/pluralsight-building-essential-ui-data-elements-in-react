@@ -2,8 +2,7 @@ import { useContext, useState } from "react";
 import { NotesContext } from "./App";
 
 function NoteChangeLogs() {
-  const { notesData, noteChangeLogsData } =
-    useContext(NotesContext);
+  const { notesData, noteChangeLogsData } = useContext(NotesContext);
 
   const [selectedNoteId, setSelectedNoteId] = useState(-1);
   const noteChangeLogsSelected = noteChangeLogsData.filter(
@@ -37,21 +36,13 @@ function NoteChangeLogs() {
               .sort((a, b) => {
                 const dateA = a.createDate;
                 const dateB = b.createDate;
-                return dateA > dateB
-                  ? -1
-                  : dateA < dateB
-                  ? 1
-                  : 0;
+                return dateA > dateB ? -1 : dateA < dateB ? 1 : 0;
               })
               .map(function (note) {
                 return (
                   <tr
                     key={note.id}
-                    className={
-                      note.id === selectedNoteId
-                        ? "selected-row"
-                        : ""
-                    }
+                    className={note.id === selectedNoteId ? "selected-row" : ""}
                     onClick={() => {
                       setSelectedNoteId(note.id);
                     }}
@@ -62,9 +53,7 @@ function NoteChangeLogs() {
                     {/*  }*/}
                     {/*`}</style>*/}
                     <td>
-                      <span className="cursor-pointer">
-                        {note.title}
-                      </span>
+                      <span className="cursor-pointer">{note.title}</span>
                     </td>
                     <td>{dateOut(note.createDate)}</td>
                     <td>{note.id.slice(0, 6) + "..."}</td>
@@ -95,23 +84,14 @@ function NoteChangeLogs() {
                   .sort((a, b) => {
                     const dateA = a.changeDate;
                     const dateB = b.changeDate;
-                    return dateA > dateB
-                      ? -1
-                      : dateA < dateB
-                      ? 1
-                      : 0;
+                    return dateA > dateB ? -1 : dateA < dateB ? 1 : 0;
                   })
                   .map(function (changeLogRec) {
                     return (
                       <tr key={changeLogRec.id}>
-                        <td>
-                          {dateOut(changeLogRec.changeDate)}
-                        </td>
+                        <td>{dateOut(changeLogRec.changeDate)}</td>
                         <td>{changeLogRec.operation}</td>
-                        <td>
-                          {changeLogRec.id.slice(0, 6) +
-                            "..."}
-                        </td>
+                        <td>{changeLogRec.id.slice(0, 6) + "..."}</td>
                       </tr>
                     );
                   })

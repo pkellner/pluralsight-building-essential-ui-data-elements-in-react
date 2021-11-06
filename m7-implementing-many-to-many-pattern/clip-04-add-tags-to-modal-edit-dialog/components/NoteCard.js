@@ -26,7 +26,6 @@ function NoteCard({ note }) {
       notesData.find((rec) => rec.id === noteId).description
     );
     setTagNamesNewValue("");
-    debugger;
     setModalNoteTagIds(
       noteOnTagsData
         .filter((rec) => rec.noteId === noteId)

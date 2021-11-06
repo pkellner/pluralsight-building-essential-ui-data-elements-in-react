@@ -28,13 +28,11 @@ function useUiNotes() {
     title,
     description
   ) {
-    if (title || description) {
-      const updateObject = {
-        title,
-        description,
-      };
-      updateRecord(id, updateObject);
-    }
+    const updateObject = {
+      title,
+      description,
+    };
+    updateRecord(id, updateObject);
   }
 
   function deleteNoteUi(id) {

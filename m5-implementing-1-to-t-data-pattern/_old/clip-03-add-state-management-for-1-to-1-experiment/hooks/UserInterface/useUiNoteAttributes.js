@@ -24,8 +24,18 @@ function useUiNoteAttributes() {
       createNoteAttributesData({
         id: uuidv4(),
         noteId: noteId,
-        pinned: pinned ? 1 : 0,
-        important: important ? 1 : 0,
+        pinned:
+          pinned === undefined
+            ? undefined
+            : pinned
+            ? 1
+            : 0,
+        important:
+          important === undefined
+            ? undefined
+            : important
+            ? 1
+            : 0,
         updateDate: new Date().toISOString(),
       });
     }
