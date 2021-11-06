@@ -1,5 +1,5 @@
-import useEntityNotes from "./EntityMethods/useEntityNotes";
-import useEntityNoteAttributes from "./EntityMethods/useEntityNoteAttributes";
+import useEntityNotes from "./entityMethods/useEntityNotes";
+import useEntityNoteAttributes from "./entityMethods/useEntityNoteAttributes";
 
 function useNotes() {
   const {
@@ -23,7 +23,6 @@ function useNotes() {
 
   function updateNote(id, title, description, pinned, important) {
     updateNoteEntity(id, title, description);
-    debugger;
     updateNoteAttributesEntity(id, pinned, important);
   }
 

@@ -1,5 +1,5 @@
-import useEntityNotes from "./entityMethods/useEntityNotes";
-import useEntityNoteAttributes from "./entityMethods/useEntityNoteAttributes";
+import useEntityNotes from "./EntityMethods/useEntityNotes";
+import useEntityNoteAttributes from "./EntityMethods/useEntityNoteAttributes";
 
 function useNotes() {
   const {

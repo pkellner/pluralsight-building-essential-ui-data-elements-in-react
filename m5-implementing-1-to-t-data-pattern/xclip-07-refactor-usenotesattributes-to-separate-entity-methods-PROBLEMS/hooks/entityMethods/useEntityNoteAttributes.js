@@ -28,7 +28,7 @@ function useEntityNoteAttributes() {
   function deleteNoteAttributesEntity(id) {
     data
       .filter((rec) => rec.noteId === id)
-      .forEach((rec) => deleteRecord(rec.id));
+      .forEach((rec) => deleteRecordccc(rec.id));
   }
 
   return {

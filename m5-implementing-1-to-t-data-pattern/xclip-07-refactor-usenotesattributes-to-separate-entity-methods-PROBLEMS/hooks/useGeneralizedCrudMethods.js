@@ -31,8 +31,7 @@ function useGeneralizedCrudMethods(initialData, delayMs = 1000) {
       setData(function (oriState) {
         const dataRecord = oriState.find((rec) => rec.id === id);
         for (const [key, value] of Object.entries(updateObject)) {
-          debugger;
-          dataRecord[key] = value === undefined ? dataRecord[key] : value;
+          dataRecord[key] = value === undefined ? undefined : value;
         }
         return oriState.map((rec) => (rec.id === id ? dataRecord : rec));
       });

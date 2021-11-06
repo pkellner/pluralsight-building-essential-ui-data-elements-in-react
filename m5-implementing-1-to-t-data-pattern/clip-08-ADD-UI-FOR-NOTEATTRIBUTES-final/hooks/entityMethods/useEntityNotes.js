@@ -17,20 +17,24 @@ function useEntityNotes() {
   }
 
   function updateNoteEntity(id, title, description) {
-    //if (title || description) {
     const updateObject = {
       title,
       description,
     };
     updateRecord(id, updateObject);
-    //}
   }
 
   function deleteNoteEntity(id) {
     deleteRecord(id);
   }
 
-  return { data, error, createNoteEntity, updateNoteEntity, deleteNoteEntity };
+  return {
+    data,
+    error,
+    createNoteEntity,
+    updateNoteEntity,
+    deleteNoteEntity,
+  };
 }
 
 export default useEntityNotes;
