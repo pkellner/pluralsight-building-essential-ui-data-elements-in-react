@@ -10,16 +10,16 @@ function useEntityNoteAttributes() {
     const noteAttributes = data.find((rec) => rec.noteId === noteId);
     if (noteAttributes) {
       updateRecord(noteAttributes.id, {
-        pinned: pinned === undefined ? undefined : pinned ? 1 : 0,
-        important: important === undefined ? undefined : important ? 1 : 0,
+        pinned: pinned ===undefined ? undefined : Number(pinned),
+        important: important === undefined ? undefined : Number(important),
         updateDate: new Date().toISOString(),
       });
     } else {
       createRecord({
         id: uuidv4(),
         noteId: noteId,
-        pinned: pinned === undefined ? undefined : pinned ? 1 : 0,
-        important: important === undefined ? undefined : important ? 1 : 0,
+        pinned: pinned ===undefined ? undefined : Number(pinned),
+        important: important === undefined ? undefined : Number(important),
         updateDate: new Date().toISOString(),
       });
     }

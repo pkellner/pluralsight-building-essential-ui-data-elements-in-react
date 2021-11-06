@@ -36,20 +36,19 @@ function useNotes() {
       description,
     };
     updateNotesData(id, updateObject);
-
     const noteAttributes = noteAttributesData.find((rec) => rec.noteId === id);
     if (noteAttributes) {
       updateNoteAttributesData(noteAttributes.id, {
-        pinned: pinned === undefined ? undefined : pinned ? 1 : 0,
-        important: important === undefined ? undefined : important ? 1 : 0,
+        pinned: pinned === undefined ? undefined : Number(pinned),
+        import: important === undefined ? undefined : Number(important),
         updateDate: new Date().toISOString(),
       });
     } else {
       createNoteAttributesData({
         id: uuidv4(),
         noteId: id,
-        pinned: pinned === undefined ? undefined : pinned ? 1 : 0,
-        important: important === undefined ? undefined : important ? 1 : 0,
+        pinned: pinned === undefined ? undefined : Number(pinned),
+        important: important === undefined ? undefined : Number(important),
         updateDate: new Date().toISOString(),
       });
     }
@@ -57,10 +56,9 @@ function useNotes() {
 
   function deleteNote(id) {
     deleteNotesData(id);
-
     noteAttributesData
-      .filter((rec) => rec.noteId === id)
-      .forEach((rec) => deleteNoteAttributesData(rec.id));
+      .filter(rec => rec.noteId === id)
+      .forEach(rec => deleteNoteAttributesData(rec.id));
   }
 
   return {

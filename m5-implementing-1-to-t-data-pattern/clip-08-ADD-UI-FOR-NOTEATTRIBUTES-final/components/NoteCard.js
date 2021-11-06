@@ -79,7 +79,6 @@ function NoteCard({ note }) {
               className="margin-left-right-15"
               href="#"
               onClick={() => {
-                debugger;
                 updateNote(
                   note.id,
                   undefined,
