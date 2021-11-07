@@ -31,7 +31,7 @@ function useNotes() {
     const noteAttributes = noteAttributesData.find((rec) => rec.noteId === id);
     if (noteAttributes) {
       updateNoteAttributesData(noteAttributes.id, {
-        pinned: pinned ===undefined ? undefined : Number(pinned),
+        pinned: pinned === undefined ? undefined : Number(pinned),
         important: important === undefined ? undefined : Number(important),
         updateDate: new Date().toISOString(),
       });
@@ -39,7 +39,7 @@ function useNotes() {
       createNoteAttributesData(noteAttributes.id, {
         id: uuidv4(),
         noteId: id,
-        pinned: pinned ===undefined ? undefined : Number(pinned),
+        pinned: pinned === undefined ? undefined : Number(pinned),
         important: important === undefined ? undefined : Number(important),
         updateDate: new Date().toISOString(),
       });

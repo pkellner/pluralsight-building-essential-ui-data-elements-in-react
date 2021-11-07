@@ -57,8 +57,8 @@ function useNotes() {
   function deleteNote(id) {
     deleteNotesData(id);
     noteAttributesData
-      .filter(rec => rec.noteId === id)
-      .forEach(rec => deleteNoteAttributesData(rec.id));
+      .filter((rec) => rec.noteId === id)
+      .forEach((rec) => deleteNoteAttributesData(rec.id));
   }
 
   return {
