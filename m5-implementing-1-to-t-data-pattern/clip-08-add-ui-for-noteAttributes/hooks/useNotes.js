@@ -8,7 +8,7 @@ function useNotes() {
     updateNoteEntity,
     deleteNoteEntity,
   } = useEntityNotes();
-  
+
   const {
     data: noteAttributesData,
     error: noteAttributesDataError,

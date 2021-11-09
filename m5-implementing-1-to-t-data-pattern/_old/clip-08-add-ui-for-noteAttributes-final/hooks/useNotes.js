@@ -21,9 +21,19 @@ function useNotes() {
     createNoteEntity(title, description);
   }
 
-  function updateNote(id, title, description, pinned, important) {
+  function updateNote(
+    id,
+    title,
+    description,
+    pinned,
+    important
+  ) {
     updateNoteEntity(id, title, description);
-    updateNoteAttributesEntity(id, pinned, important);
+    updateNoteAttributesEntity(
+      id,
+      pinned,
+      important
+    );
   }
 
   function deleteNote(id) {

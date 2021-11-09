@@ -15,26 +15,27 @@ function NoteList() {
   if (!(notesData && noteAttributesData)) return null;
 
   const notesPinned = noteAttributesData
-    .filter(na => na.pinned === 1)
-    .map(na => na.noteId);
+    .filter((na) => na.pinned === 1)
+    .map((na) => na.noteId);
 
   return (
     <>
       {notesData && <NotesModal />}
       <div className="row tab-content bg-transparent note-has-grid">
         {notesData
-          .filter( n => notesPinned.includes(n.id) )
-          .sort(sortByDate).map((note) => {
-          return <NoteCard note={note} key={note.id} />;
-        })}
+          .filter((n) => notesPinned.includes(n.id))
+          .sort(sortByDate)
+          .map((note) => {
+            return <NoteCard note={note} key={note.id} />;
+          })}
       </div>
       {notesPinned.length > 0 ? <hr /> : null}
       <div className="row tab-content bg-transparent note-has-grid">
         {notesData
-          .filter(n => !notesPinned.includes(n.id))
+          .filter((n) => !notesPinned.includes(n.id))
           .sort(sortByDate)
-          .map(note => {
-            return <NoteCard note={note} key={note.id} />
+          .map((note) => {
+            return <NoteCard note={note} key={note.id} />;
           })}
       </div>
     </>

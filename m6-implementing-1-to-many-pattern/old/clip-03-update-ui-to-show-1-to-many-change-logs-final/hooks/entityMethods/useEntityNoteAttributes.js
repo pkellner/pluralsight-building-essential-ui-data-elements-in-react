@@ -10,7 +10,7 @@ function useEntityNoteAttributes() {
     const noteAttributes = data.find((rec) => rec.noteId === noteId);
     if (noteAttributes) {
       updateRecord(noteAttributes.id, {
-        pinned: pinned ===undefined ? undefined : Number(pinned),
+        pinned: pinned === undefined ? undefined : Number(pinned),
         important: important === undefined ? undefined : Number(important),
         updateDate: new Date().toISOString(),
       });
@@ -18,7 +18,7 @@ function useEntityNoteAttributes() {
       createRecord({
         id: uuidv4(),
         noteId: noteId,
-        pinned: pinned ===undefined ? undefined : Number(pinned),
+        pinned: pinned === undefined ? undefined : Number(pinned),
         important: important === undefined ? undefined : Number(important),
         updateDate: new Date().toISOString(),
       });
