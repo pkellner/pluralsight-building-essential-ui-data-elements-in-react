@@ -27,9 +27,7 @@ export const NotesModalContext = createContext({
 function App() {
   const contextValue = useNotes();
   const contextValueNotesModal = useNotesModal();
-
-  // ["notes","logs"]
-  const [currentTab, setCurrentTab] = useState("notes");
+  const [currentTab, setCurrentTab] = useState("notes"); // ["notes","logs"]
 
   if (contextValue.notesDataError) {
     return (
