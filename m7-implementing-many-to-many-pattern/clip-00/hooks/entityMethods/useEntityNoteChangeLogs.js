@@ -9,7 +9,7 @@ function useEntityNoteChangeLogs() {
   function createNoteChangeLogsEntity(noteId, operation) {
     createRecord({
       id: uuid4(),
-      noteId: noteId,
+      noteId,
       operation,
       changeDate: new Date().toISOString(),
     });

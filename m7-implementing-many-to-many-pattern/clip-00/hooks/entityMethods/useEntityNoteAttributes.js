@@ -7,23 +7,21 @@ function useEntityNoteAttributes() {
     useGeneralizedCrudMethods(noteAttributes);
 
   function updateNoteAttributesEntity(noteId, pinned, important) {
-    if (pinned != undefined && important != undefined) {
-      const noteAttributes = data.find((rec) => rec.noteId === noteId);
-      if (noteAttributes) {
-        updateRecord(noteAttributes.id, {
-          pinned: pinned ? 1 : 0,
-          important: important ? 1 : 0,
-          updateDate: new Date().toISOString(),
-        });
-      } else {
-        createRecord({
-          id: uuidv4(),
-          noteId: noteId,
-          pinned: pinned ? 1 : 0,
-          important: important ? 1 : 0,
-          updateDate: new Date().toISOString(),
-        });
-      }
+    const noteAttributes = data.find((rec) => rec.noteId === noteId);
+    if (noteAttributes) {
+      updateRecord(noteAttributes.id, {
+        pinned: pinned === undefined ? undefined : Number(pinned),
+        important: important === undefined ? undefined : Number(important),
+        updateDate: new Date().toISOString(),
+      });
+    } else {
+      createRecord({
+        id: uuidv4(),
+        noteId: noteId,
+        pinned: pinned === undefined ? undefined : Number(pinned),
+        important: important === undefined ? undefined : Number(important),
+        updateDate: new Date().toISOString(),
+      });
     }
   }
 

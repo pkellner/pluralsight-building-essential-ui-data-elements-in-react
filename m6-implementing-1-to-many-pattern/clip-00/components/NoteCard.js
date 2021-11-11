@@ -2,7 +2,7 @@ import { NotesContext, NotesModalContext } from "./App";
 import { useContext } from "react";
 
 function NoteCard({ note }) {
-  const { notesData, noteAttributesData, updateNote, deleteNote } =
+  const { notesData, noteAttributesData, deleteNote, updateNote } =
     useContext(NotesContext);
   const {
     setModalNoteId,

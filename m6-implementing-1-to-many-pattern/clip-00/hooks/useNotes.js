@@ -1,6 +1,5 @@
 import useEntityNotes from "./entityMethods/useEntityNotes";
 import useEntityNoteAttributes from "./entityMethods/useEntityNoteAttributes";
-
 function useNotes() {
   const {
     data: notesData,
@@ -16,7 +15,6 @@ function useNotes() {
     updateNoteAttributesEntity,
     deleteNoteAttributesEntity,
   } = useEntityNoteAttributes();
-
   function createNote(title, description) {
     createNoteEntity(title, description);
   }

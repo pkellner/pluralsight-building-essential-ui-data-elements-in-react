@@ -70,7 +70,7 @@ function NoteChangeLogs() {
             </tr>
           </thead>
           <tbody>
-            {selectedNoteId != 1
+            {selectedNoteId != -1
               ? noteChangeLogsSelected
                   .sort((a, b) => {
                     const dateA = a.changeDate;

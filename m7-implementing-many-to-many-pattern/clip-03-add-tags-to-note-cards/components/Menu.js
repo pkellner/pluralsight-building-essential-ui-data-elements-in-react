@@ -21,7 +21,6 @@ function Menu({ currentTab, setCurrentTab }) {
       tabValue === currentTab
         ? "nav-link rounded-pill note-link d-flex align-items-center px-2 px-md-3 mr-0 mr-md-2 active"
         : "nav-link rounded-pill note-link d-flex align-items-center px-2 px-md-3 mr-0 mr-md-2";
-
     return (
       <li className="nav-item">
         <a
@@ -30,7 +29,6 @@ function Menu({ currentTab, setCurrentTab }) {
             setCurrentTab(tabValue);
           }}
           className={tabClass}
-          id="all-category"
         >
           <i className="icon-layers mr-1"></i>
           <span className="d-none d-md-block">{tabText}</span>

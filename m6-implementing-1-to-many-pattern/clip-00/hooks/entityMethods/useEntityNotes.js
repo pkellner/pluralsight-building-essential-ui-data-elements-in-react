@@ -7,15 +7,13 @@ function useEntityNotes() {
     useGeneralizedCrudMethods(notes);
 
   function createNoteEntity(title, description) {
-    const noteId = uuidv4();
     const newNote = {
-      id: noteId,
+      id: uuidv4(),
       title,
       description,
       createDate: new Date().toISOString(),
     };
     createRecord(newNote);
-    return noteId;
   }
 
   function updateNoteEntity(id, title, description) {
@@ -30,7 +28,13 @@ function useEntityNotes() {
     deleteRecord(id);
   }
 
-  return { data, error, createNoteEntity, updateNoteEntity, deleteNoteEntity };
+  return {
+    data,
+    error,
+    createNoteEntity,
+    updateNoteEntity,
+    deleteNoteEntity,
+  };
 }
 
 export default useEntityNotes;

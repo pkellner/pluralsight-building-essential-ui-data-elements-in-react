@@ -25,7 +25,6 @@ function useNotes() {
   } = useEntityNoteChangeLogs();
 
   function createNote(title, description) {
-    // could create Id noteId here and pass in to createNoteEntity as alternative
     const noteId = createNoteEntity(title, description);
     createNoteChangeLogsEntity(noteId, "CREATE");
   }

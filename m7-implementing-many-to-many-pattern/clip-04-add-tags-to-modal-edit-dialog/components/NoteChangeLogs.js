@@ -3,12 +3,10 @@ import { NotesContext } from "./App";
 
 function NoteChangeLogs() {
   const { notesData, noteChangeLogsData } = useContext(NotesContext);
-
   const [selectedNoteId, setSelectedNoteId] = useState(-1);
   const noteChangeLogsSelected = noteChangeLogsData.filter(
-    (ncl) => ncl.noteId === selectedNoteId
+    (rec) => rec.noteId === selectedNoteId
   );
-
   function dateOut(dateValue) {
     return new Date(dateValue).toLocaleTimeString("en", {
       year: "numeric",
@@ -19,10 +17,9 @@ function NoteChangeLogs() {
     });
   }
 
-  // This is the 1 of 1-to-many
   function NotesListBase() {
     return (
-      <div className="col-6 ">
+      <div className="col-6">
         <table className="table">
           <thead>
             <tr>
@@ -47,16 +44,11 @@ function NoteChangeLogs() {
                       setSelectedNoteId(note.id);
                     }}
                   >
-                    {/*<style jsx>{`*/}
-                    {/*  .cursor-pointer {*/}
-                    {/*    cursor: pointer;*/}
-                    {/*  }*/}
-                    {/*`}</style>*/}
                     <td>
                       <span className="cursor-pointer">{note.title}</span>
                     </td>
                     <td>{dateOut(note.createDate)}</td>
-                    <td>{note.id.slice(0, 6) + "..."}</td>
+                    <td>{`${note.id.slice(0, 6)} ...`}</td>
                   </tr>
                 );
               })}
@@ -66,10 +58,9 @@ function NoteChangeLogs() {
     );
   }
 
-  // this is the many of the 1-to-many
   function NotesListDetail() {
     return (
-      <div className="col-6  blue-border-rounded">
+      <div className="col-6 blue-border-rounded">
         <table className="table">
           <thead>
             <tr>
@@ -91,7 +82,7 @@ function NoteChangeLogs() {
                       <tr key={changeLogRec.id}>
                         <td>{dateOut(changeLogRec.changeDate)}</td>
                         <td>{changeLogRec.operation}</td>
-                        <td>{changeLogRec.id.slice(0, 6) + "..."}</td>
+                        <td>{`${changeLogRec.id.slice(0, 6)}...`}</td>
                       </tr>
                     );
                   })
@@ -103,14 +94,12 @@ function NoteChangeLogs() {
   }
 
   return (
-    <>
-      <div className="container">
-        <div className="row">
-          <NotesListBase />
-          <NotesListDetail />
-        </div>
+    <div className="container">
+      <div className="row">
+        <NotesListBase />
+        <NotesListDetail />
       </div>
-    </>
+    </div>
   );
 }
 
