@@ -1,8 +1,6 @@
 import useEntityNotes from "./entityMethods/useEntityNotes";
 import useEntityNoteAttributes from "./entityMethods/useEntityNoteAttributes";
 import useEntityNoteChangeLogs from "./entityMethods/useEntityNoteChangeLogs";
-import useEntityTags from "./entityMethods/useEntityTags";
-import useEntityNoteOnTags from "./entityMethods/useEntityNoteOnTags";
 
 function useNotes() {
   const {
@@ -26,47 +24,20 @@ function useNotes() {
     createNoteChangeLogsEntity,
   } = useEntityNoteChangeLogs();
 
-  const {
-    data: tagsData,
-    error: tagsDataError,
-    createTagsAndMerge,
-  } = useEntityTags();
-
-  const {
-    data: noteOnTagsData,
-    error: noteOnTagsDataError,
-    updateNoteTags,
-    deleteNoteOnTagsByNoteId,
-  } = useEntityNoteOnTags();
-
-  function createNote(title, description, tagIdsIn, tagNamesIn) {
-    // could create Id noteId here and pass in to createNoteEntity as alternative
+  function createNote(title, description) {
     const noteId = createNoteEntity(title, description);
     createNoteChangeLogsEntity(noteId, "CREATE");
-    const tagIds = createTagsAndMerge(tagIdsIn, tagNamesIn);
-    updateNoteTags(tagIds, noteId);
   }
 
-  function updateNote(
-    id,
-    title,
-    description,
-    pinned,
-    important,
-    tagIdsIn,
-    tagNamesIn
-  ) {
+  function updateNote(id, title, description, pinned, important) {
     updateNoteEntity(id, title, description);
     updateNoteAttributesEntity(id, pinned, important);
     createNoteChangeLogsEntity(id, "UPDATE");
-    const tagIds = createTagsAndMerge(tagIdsIn, tagNamesIn);
-    updateNoteTags(tagIds, id);
   }
 
   function deleteNote(id) {
     deleteNoteEntity(id);
     deleteNoteAttributesEntity(id);
-    deleteNoteOnTagsByNoteId(id);
   }
 
   return {
@@ -76,10 +47,6 @@ function useNotes() {
     noteAttributesDataError,
     noteChangeLogsData,
     noteChangeLogsDataError,
-    tagsData,
-    tagsDataError,
-    noteOnTagsData,
-    noteOnTagsDataError,
     createNote,
     updateNote,
     deleteNote,
