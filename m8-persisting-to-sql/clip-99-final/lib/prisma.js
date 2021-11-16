@@ -11,7 +11,7 @@ export const errorFormat = function (errorMessage) {
 
 let prisma;
 
-const overrideLogging = true;
+const overrideLogging = false;
 
 if (process.env.NODE_ENV === "production" || overrideLogging === true) {
   prisma = new PrismaClient({});
@@ -22,5 +22,16 @@ if (process.env.NODE_ENV === "production" || overrideLogging === true) {
     });
   }
   prisma = global.prisma;
+
+  // prisma.$on("query", (e) => {
+  //   console.log("Query: " + e.query);
+  //
+  //   const DELAYMS = 1000;
+  //   let now = Date.now();
+  //   const end = now + DELAYMS;
+  //   while (now < end) { now = Date.now(); }
+  //
+  //   console.log("Duration: " + e.duration + "ms");
+  // });
 }
 export default prisma;

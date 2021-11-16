@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 const DELAYMS = 1000;
 
+// ADD OPTIMISTIC UI!!!
+
 function useGeneralizedCrudMethods(url, errorNotificationFn) {
   const [data, setData] = useState();
   const [error, setError] = useState();
@@ -39,16 +41,14 @@ function useGeneralizedCrudMethods(url, errorNotificationFn) {
 
   async function createRecord(createObject) {
     async function addData() {
-      const startingData = [...data];
       try {
+        //await axios.post(url + 'x', createObject); // causes error for testing
+        await axios.post(url, createObject);
+        await new Promise((resolve) => setTimeout(resolve, DELAYMS));
         setData(function (oriState) {
           return [...oriState, createObject];
         });
-        await new Promise((resolve) => setTimeout(resolve, DELAYMS));
-        //url += "-BreakURL";
-        await axios.post(url, createObject);
       } catch (e) {
-        setData(startingData);
         const errorString = formatErrorMessage(e, url);
         errorNotificationFn?.(errorString);
         validate();
@@ -59,8 +59,12 @@ function useGeneralizedCrudMethods(url, errorNotificationFn) {
 
   async function updateRecord(id, updateObject) {
     async function updateData() {
-      const startingData = [...data];
       try {
+        await axios.put(`${url}/${id}`, {
+          // to make fail, at x to url string
+          ...updateObject,
+        });
+        await new Promise((resolve) => setTimeout(resolve, DELAYMS));
         setData(function (oriState) {
           const dataRecord = oriState.find((rec) => rec.id === id);
           for (const [key, value] of Object.entries(updateObject)) {
@@ -68,14 +72,7 @@ function useGeneralizedCrudMethods(url, errorNotificationFn) {
           }
           return oriState.map((rec) => (rec.id === id ? dataRecord : rec));
         });
-        await new Promise((resolve) => setTimeout(resolve, DELAYMS));
-        //url += "-BreakURL";
-        await axios.put(`${url}/${id}`, {
-          // to make fail, at x to url string
-          ...updateObject,
-        });
       } catch (e) {
-        setData(startingData);
         const errorString = formatErrorMessage(e, url);
         errorNotificationFn?.(errorString);
         validate();
@@ -85,16 +82,13 @@ function useGeneralizedCrudMethods(url, errorNotificationFn) {
   }
   async function deleteRecord(id) {
     async function deleteData() {
-      const startingData = [...data];
       try {
+        await axios.delete(`${url}/${id}`);
+        await new Promise((resolve) => setTimeout(resolve, DELAYMS));
         setData(function (oriState) {
           return oriState.filter((rec) => rec.id != id);
         });
-        await new Promise((resolve) => setTimeout(resolve, DELAYMS));
-        //url += "-BreakURL";
-        await axios.delete(`${url}/${id}`);
       } catch (e) {
-        setData(startingData);
         const errorString = formatErrorMessage(e, url);
         errorNotificationFn?.(errorString);
         validate();
