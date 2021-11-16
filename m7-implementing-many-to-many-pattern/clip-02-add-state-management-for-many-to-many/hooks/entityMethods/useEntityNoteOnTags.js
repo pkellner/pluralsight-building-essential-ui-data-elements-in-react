@@ -1,7 +1,5 @@
 function useEntityNoteOnTags() {
-  
-  return {
-  };
+  return {};
 }
 
 export default useEntityNoteOnTags;

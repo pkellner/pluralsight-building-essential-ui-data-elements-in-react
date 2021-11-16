@@ -1,10 +1,8 @@
-import {NotesContext, NotesModalContext} from "./App";
+import { NotesContext, NotesModalContext } from "./App";
 import { useContext } from "react";
 
 function Menu({ currentTab, setCurrentTab }) {
-
   const notesModalState = useContext(NotesModalContext);
-
 
   function createNoteFn() {
     notesModalState.modalNoteId.set(0);

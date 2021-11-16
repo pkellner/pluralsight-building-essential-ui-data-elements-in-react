@@ -2,8 +2,10 @@ import useGeneralizedCrudMethods from "../useGeneralizedCrudMethods";
 import { v4 as uuidv4 } from "uuid";
 
 function useEntityNoteOnTags(url, errorNotificationFn) {
-  const { data, error, createRecord, deleteRecord } =
-    useGeneralizedCrudMethods(url, errorNotificationFn);
+  const { data, error, createRecord, deleteRecord } = useGeneralizedCrudMethods(
+    url,
+    errorNotificationFn
+  );
   function updateNoteTags(tagIdsToSet, noteId) {
     if (!tagIdsToSet || !noteId) {
       return;

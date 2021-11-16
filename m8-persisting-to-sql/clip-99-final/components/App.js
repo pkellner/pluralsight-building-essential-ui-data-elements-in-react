@@ -31,7 +31,6 @@ export const NotesModalContext = createContext({
 });
 
 function App() {
-
   function errorNotificationFn(errorMessage) {
     toast.error(errorMessage);
   }
@@ -39,8 +38,6 @@ function App() {
   const contextValue = useNotes(errorNotificationFn);
   const contextValueNotesModal = useNotesModal();
   const [currentTab, setCurrentTab] = useState("notes"); // ["notes","logs"]
-
-
 
   if (contextValue.notesDataError) {
     return (

@@ -1,5 +1,5 @@
-import {useContext, useState} from "react";
-import {NotesContext, NotesModalContext} from "./App";
+import { useContext, useState } from "react";
+import { NotesContext, NotesModalContext } from "./App";
 
 function NoteModal() {
   const { notesData, tagsData, createNote, updateNote } =
