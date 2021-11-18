@@ -1,0 +1,44 @@
+generator client {
+  provider        = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+model Note {
+  id             String  @id
+  title          String
+  description    String
+  createDate     String?
+}
+
+model NoteAttributes {
+  id         String   @id
+  noteId     String
+  important  Int?
+  pinned     Int?
+  updateDate String?
+  @@unique([id, noteId])
+}
+
+model NoteChangeLog {
+  id         String   @id
+  noteId     String
+  operation  String
+  changeDate String?
+}
+
+model Tag {
+  id         String   @id
+  tagName    String
+}
+
+model NoteOnTag {
+  id         String    @id
+  noteId     String
+  tagId      String
+  createdAt  String?
+  @@unique([noteId, tagId])
+}

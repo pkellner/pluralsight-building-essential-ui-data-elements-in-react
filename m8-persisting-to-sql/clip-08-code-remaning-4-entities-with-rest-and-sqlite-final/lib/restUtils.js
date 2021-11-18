@@ -1,10 +1,4 @@
-import data from "../data/notes.json";
-
-function errorFormat(error) {
-  console.log(
-    `/lib/restUtils: errorFormat: ${error} ${new Date().toISOString()}`
-  );
-}
+import prisma, { errorFormat } from "./prisma";
 
 // REST URL's WITHOUT key appended
 
@@ -25,6 +19,7 @@ export async function processGetAndPost(dbEntity, req, res) {
 
 export async function handleGet(dbEntity, res) {
   try {
+    const data = await dbEntity.findMany();
     res.end(JSON.stringify(data ?? [], null, "\t"));
   } catch (e) {
     res.status(400).end(errorFormat(e?.message));
@@ -33,8 +28,11 @@ export async function handleGet(dbEntity, res) {
 
 export async function handlePost(dbEntity, req, res) {
   try {
+    const data = await dbEntity.create({
+      data: { ...req.body },
+    });
     res.setHeader("Content-Type", "application/json");
-    res.end(JSON.stringify(data[0], null, "\t"));
+    res.end(JSON.stringify(data, null, "\t"));
   } catch (e) {
     res.status(400).end(errorFormat(e?.message));
   }
@@ -65,9 +63,12 @@ export async function processGetOnePutAndDelete(dbEntity, req, res) {
 export async function handleGetOne(dbEntity, req, res) {
   try {
     const primaryKeyId = req?.query?.id ?? "ID-REQUIRED-NOT-FOUND";
-    if (data && primaryKeyId < data.length) {
+    const data = await dbEntity.findMany({
+      where: { id: primaryKeyId },
+    });
+    if (data && data.length > 0) {
       res.setHeader("Content-Type", "application/json");
-      res.end(JSON.stringify(data[primaryKeyId], null, "\t"));
+      res.end(JSON.stringify(data, null, "\t"));
     } else {
       res.status(404).end("not found");
     }
@@ -79,7 +80,11 @@ export async function handleGetOne(dbEntity, req, res) {
 async function handlePut(dbEntity, req, res) {
   try {
     const primaryKeyId = req?.query?.id ?? "ID-REQUIRED-NOT-FOUND";
-    res.status(200).end(JSON.stringify(data[0], null, "\t"));
+    const data = await dbEntity.update({
+      where: { id: primaryKeyId },
+      data: { ...req.body },
+    });
+    res.status(200).end(JSON.stringify(data, null, "\t"));
   } catch (e) {
     res.status(400).end(errorFormat(e?.message));
   }
@@ -88,8 +93,11 @@ async function handlePut(dbEntity, req, res) {
 async function handleDelete(dbEntity, req, res) {
   try {
     const primaryKeyId = req?.query?.id ?? "ID-REQUIRED-NOT-FOUND";
+    const data = await dbEntity.delete({
+      where: { id: primaryKeyId },
+    });
     res.setHeader("Content-Type", "application/json");
-    res.end(JSON.stringify(data[0], null, "\t"));
+    res.end(JSON.stringify(data, null, "\t"));
   } catch (e) {
     res.status(400).end(errorFormat(e?.message));
   }
