@@ -17,7 +17,7 @@ model Note {
 model NoteAttributes {
   id String @id
   noteId String
-  import Int?
+  important Int?
   pinned Int?
   updateDate String?
   @@unique ([id, noteId])
