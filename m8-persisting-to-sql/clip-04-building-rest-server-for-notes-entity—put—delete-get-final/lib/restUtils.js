@@ -65,21 +65,19 @@ export async function processGetOnePutAndDelete(dbEntity, req, res) {
 export async function handleGetOne(dbEntity, req, res) {
   try {
     const primaryKeyId = req?.query?.id ?? "ID-REQUIRED-NOT-FOUND";
-    if (data && primaryKeyId < data.length) {
+    if (parseInt(primaryKeyId) < 1000) {
       res.setHeader("Content-Type", "application/json");
-      res.end(JSON.stringify(data[primaryKeyId], null, "\t"));
-    } else {
-      res.status(404).end("not found");
+      res.end(JSON.stringify({id: primaryKeyId, title: "GetOneKey Title"}, null, "\t"));
     }
   } catch (e) {
-    res.status(400).end(errorFormat("general error"));
+    res.status(400).end(errorFormat(e?.message));
   }
 }
 
 async function handlePut(dbEntity, req, res) {
   try {
     const primaryKeyId = req?.query?.id ?? "ID-REQUIRED-NOT-FOUND";
-    res.status(200).end(JSON.stringify(data[0], null, "\t"));
+    res.status(200).end({id: primaryKeyId, title: "handlePut"},null,"\t");
   } catch (e) {
     res.status(400).end(errorFormat(e?.message));
   }
@@ -89,7 +87,7 @@ async function handleDelete(dbEntity, req, res) {
   try {
     const primaryKeyId = req?.query?.id ?? "ID-REQUIRED-NOT-FOUND";
     res.setHeader("Content-Type", "application/json");
-    res.end(JSON.stringify(data[0], null, "\t"));
+    res.status(200).end({id: primaryKeyId, title: "handleDelete"},null,"\t");
   } catch (e) {
     res.status(400).end(errorFormat(e?.message));
   }
