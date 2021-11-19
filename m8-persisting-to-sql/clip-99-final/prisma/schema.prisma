@@ -17,8 +17,8 @@ model Note {
 model NoteAttributes {
   id         String   @id
   noteId     String
-  important  Int
-  pinned     Int
+  important  Int?
+  pinned     Int?
   updateDate String?
   @@unique([id, noteId])
 }

@@ -1,7 +1,6 @@
 function errorFormat(error) {
-  console.log(`restutils: errorFormat: ${error}`);
+  console.log(`restUtils: errorFormat: ${error}`);
 }
-
 export async function processGetAndPost(dbEntity, req, res) {
   const { method } = req;
   switch (method) {
@@ -32,7 +31,7 @@ export async function handleGet(dbEntity, res) {
 export async function handlePost(dbEntity, req, res) {
   try {
     res.setHeader("Content-Type", "application/json");
-    const record = { id: 2, title: "second note" };
+    const record = { id: 2, title: "second one" };
     res.end(JSON.stringify(record, null, "\t"));
   } catch (e) {
     res.status(400).end(errorFormat(e?.message));
