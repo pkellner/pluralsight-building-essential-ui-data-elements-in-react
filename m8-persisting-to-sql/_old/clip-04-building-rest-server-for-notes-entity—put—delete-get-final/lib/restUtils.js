@@ -1,6 +1,13 @@
+import data from "../data/notes.json";
+
 function errorFormat(error) {
-  console.log(`restUtils: errorFormat: ${error}`);
+  console.log(
+    `/lib/restUtils: errorFormat: ${error} ${new Date().toISOString()}`
+  );
 }
+
+// REST URL's WITHOUT key appended
+
 export async function processGetAndPost(dbEntity, req, res) {
   const { method } = req;
   switch (method) {
@@ -18,11 +25,7 @@ export async function processGetAndPost(dbEntity, req, res) {
 
 export async function handleGet(dbEntity, res) {
   try {
-    const data = [
-      { id: 1, title: "first note" },
-      { id: 2, title: "second note" },
-    ];
-    res.end(JSON.stringify(data, null, "\t"));
+    res.end(JSON.stringify(data ?? [], null, "\t"));
   } catch (e) {
     res.status(400).end(errorFormat(e?.message));
   }
@@ -31,12 +34,15 @@ export async function handleGet(dbEntity, res) {
 export async function handlePost(dbEntity, req, res) {
   try {
     res.setHeader("Content-Type", "application/json");
-    const record = { id: 2, title: "second one" };
-    res.end(JSON.stringify(record, null, "\t"));
+    res.end(JSON.stringify(data[0], null, "\t"));
   } catch (e) {
     res.status(400).end(errorFormat(e?.message));
   }
 }
+
+//
+// REST URL's WITH key appended
+//
 
 export async function processGetOnePutAndDelete(dbEntity, req, res) {
   const { method } = req;
@@ -86,6 +92,7 @@ async function handlePut(dbEntity, req, res) {
 async function handleDelete(dbEntity, req, res) {
   try {
     const primaryKeyId = req?.query?.id ?? "ID-REQUIRED-NOT-FOUND";
+    res.setHeader("Content-Type", "application/json");
     res
       .status(200)
       .end({ id: primaryKeyId, title: "handleDelete" }, null, "\t");
