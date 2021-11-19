@@ -1,8 +1,10 @@
 import { PrismaClient } from "@prisma/client";
 
 export const errorFormat = function (errorMessage) {
-  const str = process.env.NODE_ENV === "production"
-    ? "try refreshing page (prisma)" : errorMessage;
+  const str =
+    process.env.NODE_ENV === "production"
+      ? "try refreshing page (prisma)"
+      : errorMessage;
   console.log(str);
   return str;
 };

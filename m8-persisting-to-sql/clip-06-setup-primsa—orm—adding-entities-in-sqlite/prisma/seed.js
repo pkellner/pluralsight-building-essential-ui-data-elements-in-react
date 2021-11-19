@@ -12,10 +12,10 @@ async function main() {
   console.log("Starting Seeding...");
 
   for (const rec of notesData) {
-    await prisma.note.create({ data: rec, });
+    await prisma.note.create({ data: rec });
   }
   for (const rec of noteChangeLogsData) {
-    await prisma.noteChangeLog.create({ data: rec, });
+    await prisma.noteChangeLog.create({ data: rec });
   }
   for (const rec of noteAttributesData) {
     await prisma.noteAttributes.create({ data: rec });
@@ -28,10 +28,11 @@ async function main() {
   }
 }
 
-main().catch((e) => {
-  console.error(e);
-  process.exit(1);
-})
+main()
+  .catch((e) => {
+    console.error(e);
+    process.exit(1);
+  })
   .finally(async () => {
     await prisma.$disconnect();
   });
