@@ -18,13 +18,13 @@ function useNotes(errorNotificationFn) {
     error: noteAttributesDataError,
     updateNoteAttributesEntity,
     deleteNoteAttributesEntity,
-  } = useEntityNoteAttributes("/api/noteAttributes",errorNotificationFn);
+  } = useEntityNoteAttributes("/api/noteAttributes", errorNotificationFn);
 
   const {
     data: noteChangeLogsData,
     error: noteChangeLogsDataError,
     createNoteChangeLogsEntity,
-  } = useEntityNoteChangeLogs("/api/noteChangeLogs",errorNotificationFn);
+  } = useEntityNoteChangeLogs("/api/noteChangeLogs", errorNotificationFn);
 
   const {
     data: tagsData,

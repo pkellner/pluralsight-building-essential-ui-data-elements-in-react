@@ -15,9 +15,10 @@ function useGeneralizedCrudMethods(url, errorNotificationFn) {
   }
 
   function formatErrorString(e, url) {
-    const errorString = e?.response?.status === 404 ?
-      e?.message + " url " + url
-      : e?.message + e?.response?.data;
+    const errorString =
+      e?.response?.status === 404
+        ? e?.message + " url " + url
+        : e?.message + e?.response?.data;
     console.log(errorString);
     return errorString;
   }
@@ -51,9 +52,9 @@ function useGeneralizedCrudMethods(url, errorNotificationFn) {
   }
   function updateRecord(id, updateObject) {
     async function updateData() {
+      const startingData = [...data];
       try {
         //url += "xxx";
-        await axios.put(`${url}/${id}`, { ...updateObject });
         setData(function (oriState) {
           const dataRecord = oriState.find((rec) => rec.id === id);
           for (const [key, value] of Object.entries(updateObject)) {
@@ -61,7 +62,12 @@ function useGeneralizedCrudMethods(url, errorNotificationFn) {
           }
           return oriState.map((rec) => (rec.id === id ? dataRecord : rec));
         });
+        await new Promise((resolve) => setTimeout(resolve, 2000));
+        await axios.put(`${url}/${id}`, {
+          ...updateObject,
+        });
       } catch (e) {
+        setData(startingData);
         const errorString = formatErrorString(e, url);
         errorNotificationFn?.(errorString);
         validate();

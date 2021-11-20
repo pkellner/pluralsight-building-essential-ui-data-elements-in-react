@@ -31,7 +31,6 @@ export const NotesModalContext = createContext({
 });
 
 function App() {
-
   function errorNotificationFn(errorMessage) {
     toast.error(errorMessage);
     console.log("App: Error", errorMessage);

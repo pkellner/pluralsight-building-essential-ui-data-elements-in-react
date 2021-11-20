@@ -15,9 +15,10 @@ function useGeneralizedCrudMethods(url, errorNotificationFn) {
   }
 
   function formatErrorString(e, url) {
-    const errorString = e?.response?.status === 404 ?
-      e?.message + " url " + url
-      : e?.message + e?.response?.data;
+    const errorString =
+      e?.response?.status === 404
+        ? e?.message + " url " + url
+        : e?.message + e?.response?.data;
     console.log(errorString);
     return errorString;
   }
