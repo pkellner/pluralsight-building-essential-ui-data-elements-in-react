@@ -18,6 +18,13 @@ Next, you’ll discover all the details necessary to build a client only version
 
 When you are finished with the course, you’ll have the skills and knowledge necessary to build real world React applications that manage typical data scenarios found in both small home grown web site projects, as well as full enterprise applications.
 
+## Getting Started
+1. **Install [Node 16 (latest-verson) with NPM 17](https://nodejs.org)**.
+2. **Clone this repository.** - `https://github.com/pkellner/pluralsight-building-essential-ui-data-elements-in-react` or [download the zip](https://github.com/pkellner/pluralsight-building-essential-ui-data-elements-in-react/archive/master.zip)
+3. **Set your default directory to which module you want (example: `cd m3-building-a-notes-react-app` - `cd clip-03-nextjs-eslint-setup`
+4. **Install Node Packages with Dependencies.** - `npm install`
+
+
 
 ## Directory Structure Here
 
