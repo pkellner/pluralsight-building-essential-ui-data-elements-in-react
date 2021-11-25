@@ -4,6 +4,8 @@ import useNotesModal from "../hooks/useNotesModal";
 import Menu from "./Menu";
 import { createContext, useState } from "react";
 import NoteChangeLogs from "./NoteChangeLogs";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export const NotesContext = createContext({
   notesData: [],
@@ -30,6 +32,7 @@ export const NotesModalContext = createContext({
 
 function App() {
   function errorNotificationFn(errorMessage) {
+    toast.error(errorMessage);
     console.log("App: Error", errorMessage);
   }
 
@@ -55,6 +58,7 @@ function App() {
           {currentTab === "logs" && <NoteChangeLogs />}
         </NotesModalContext.Provider>
       </NotesContext.Provider>
+      <ToastContainer />
     </div>
   );
 }
