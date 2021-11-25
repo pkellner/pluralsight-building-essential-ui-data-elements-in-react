@@ -53,6 +53,7 @@ function useGeneralizedCrudMethods(url, errorNotificationFn) {
   function updateRecord(id, updateObject) {
     async function updateData() {
       try {
+        //url += "xxx";
         await axios.put(`${url}/${id}`, { ...updateObject });
         setData(function (oriState) {
           const dataRecord = oriState.find((rec) => rec.id === id);
