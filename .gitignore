@@ -105,9 +105,6 @@ __mismatch__
 *.db-wal
 *.db-shm
 package-lock.json
-Legacy/CarvedRock.Api/out
-GraphQL-HC-Course3
-npmCheck
 
 
 
