@@ -102,15 +102,9 @@ tools/**
 testoutput/
 artifacts/
 __mismatch__
-conferences.db
-svcc.db
-svcc.db.7z
 *.db-wal
 *.db-shm
 package-lock.json
-WebAppReactCRA/ClientApp/public/ExtJSAppsSource
-GraphQL-HC-Course3/testdb.db
-WebAppReactCRA/testdb.db
 Legacy/CarvedRock.Api/out
 GraphQL-HC-Course3
 npmCheck
