@@ -1,12 +1,22 @@
-# pluralsight-building-essential-ui-data-elements-in-react
-
-The master branch here is the latest updates to the Pluralsight course <b>Building Essential UI Data Elements in React</b>
-
-
 # Course Code for [Building Essential UI Data Elements in React](https://app.pluralsight.com/library/courses/react-17-building-essential-ui-data-elements) on Pluralsight
 
+
+## OTHER Recently Released Courses From Peter Kellner
+
+| **Course**                                                                           | Release Date  |
+|-------------------------------------------------------------------------------------------------------------------------------|---------------|
+| **[Using Hooks in React 18](https://pluralsight.com/courses/react-18-using-hooks/)**                                          | November 2022 |
+| **[What is React](https://pluralsight.com/courses/react-what-is/)**                                                           | August 2022   |
+| **[What's New in React 18](https://pluralsight.com/courses/react-18-whats-new/)**                                             | May 2022      |
+| **[Data and UI Patterns in React](https://github.com/pkellner/pluralsight-building-essential-ui-data-elements-in-react/)**  *(this course)*      | December 2021 |
+
+<hr/>
+
+
+
+
 <br/>
-This GitHub repo includes the final code for all the modules in the course 
+The main branch here is the latest updates to the Pluralsight course <b>Building Essential UI Data Elements in React</b>. This GitHub repo includes the final code for all the modules in the course 
 
 ## Course Description
 
